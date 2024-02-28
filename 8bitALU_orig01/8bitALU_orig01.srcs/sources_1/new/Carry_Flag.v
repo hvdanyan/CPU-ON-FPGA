@@ -25,8 +25,8 @@ module Carry_Flag(input [7:0]Reg_a, Reg_b,input [2:0]opcode,input CLK,  output r
     //reg cout;
     reg[7:0]C;
     always@(posedge CLK)begin
-        if(opcode == 010) begin //有符号加法
-            {Reg_carry, C} = Reg_a + Reg_b+Reg_carry;
+        if(opcode == 010) begin 
+            {Reg_carry, C} = Reg_a + Reg_b + Reg_carry;
                     //Reg_carry = Reg_carry;      //进位
         end
         else Reg_carry<=Reg_carry;
