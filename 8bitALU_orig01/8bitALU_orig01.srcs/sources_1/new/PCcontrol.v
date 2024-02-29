@@ -35,7 +35,7 @@ module PCcontrol(
     
     wire jump;//whether jump or not
     //assign jump=(jumpcode[1]&~ALUout[7]&~ALUout[6]&~ALUout[5]&~ALUout[4]&~ALUout[3]&~ALUout[2]&~ALUout[1]&~ALUout[0])|(jumpcode[0]&~ALUout[7]&(ALUout[6]|ALUout[5]|ALUout[4]|ALUout[3]|ALUout[2]|ALUout[1]|ALUout[0]))|(jumpcode[1]&jumpcode[0]);
-    assign jump=~PCwrite&(jumpcode[1]&~ALUout[7]&~ALUout[6]&~ALUout[5]&~ALUout[4]&~ALUout[3]&~ALUout[2]&~ALUout[1]&~ALUout[0])|(jumpcode[0]&~ALUout[7]&(ALUout[6]|ALUout[5]|ALUout[4]|ALUout[3]|ALUout[2]|ALUout[1]|ALUout[0]))|(jumpcode[1]&jumpcode[0]);
+    assign jump=~PCwrite&((jumpcode[1]&~ALUout[7]&~ALUout[6]&~ALUout[5]&~ALUout[4]&~ALUout[3]&~ALUout[2]&~ALUout[1]&~ALUout[0])|(jumpcode[0]&~ALUout[7]&(ALUout[6]|ALUout[5]|ALUout[4]|ALUout[3]|ALUout[2]|ALUout[1]|ALUout[0]))|(jumpcode[1]&jumpcode[0]));
     reg [1:0]activate_delay;
     reg [1:0][1:0]CS_delay;
     always @(posedge CLK)

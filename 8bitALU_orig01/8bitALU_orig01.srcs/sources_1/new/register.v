@@ -31,4 +31,7 @@ module register(
 
     assign Byteout = ByteMemo;
     
+    initial begin
+        ByteMemo = 8'b0; 
+    end
 endmodule

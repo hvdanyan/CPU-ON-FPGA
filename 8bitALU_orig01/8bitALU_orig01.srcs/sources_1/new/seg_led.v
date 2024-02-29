@@ -25,13 +25,10 @@ input [7:0]regA;
 input [7:0]regB;
 output [3:0] seg_sel;
 output [7:0] seg_led;
-parameter DIVCLK_CNTMAX = 49999; //100M/1K = 10K
+parameter DIVCLK_CNTMAX = 49999; //100M/50000 = 2khz
 wire clk_1K;
 //例化时钟分频模块
-clock_division #(
-.DIVCLK_CNTMAX(DIVCLK_CNTMAX)
-)
-my_clock(
+clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNTMAX)) my_clock(
 .clk_in(CLK),
 .divclk(clk_1K)
 );

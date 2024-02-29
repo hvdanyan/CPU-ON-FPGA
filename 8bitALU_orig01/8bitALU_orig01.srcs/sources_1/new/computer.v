@@ -31,7 +31,7 @@
     output [3:0]Regsel
     
     //BELOW FOR SIMULATION USE
-    //,output [7:0]instraddr,Reg_b,Reg_a,Reg_output,RamM,
+    //,output [7:0]instraddr,Reg_b,Reg_a,Reg_output,RamM,ALUout,
     //output  Awrite_delay,Bwrite_delay,Mwrite_delay,PCwrite,
     //output [0:2][7:0]ramdisplay,
     //output activate
@@ -40,13 +40,22 @@
      //CLK switch
      wire stable_MANCLK;
      Button_stabilization Button_stabilization_inst(CLK100MHz,MANCLK,stable_MANCLK);
-     reg CLK;
-     always@(*)
-     begin
-     if(ina[0]==0)CLK=stable_MANCLK;
-     else CLK=CLK100MHz;
-     end 
 
+     wire CLK_FAST,CLK_SLOW;
+
+     parameter DIVCLK_CNT_FAST = 49999;
+     clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_FAST)) clock_division_FAST_inst(// 100MHz/50000 = 2000Hz
+      .clk_in(CLK100MHz),
+      .divclk(CLK_FAST)
+      );
+
+     parameter DIVCLK_CNT_SLOW = 19999999;
+     clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_SLOW)) clock_division_SLOW_inst(// 100MHz/20000000 = 5Hz
+      .clk_in(CLK100MHz),
+      .divclk(CLK_SLOW)
+      );
+
+      assign CLK = (ina[0]) ? CLK_FAST : CLK_SLOW ;//choose the clock source
 
      wire [7:0]Reg_a;
      wire [7:0]Reg_b;

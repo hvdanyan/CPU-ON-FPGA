@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module clock_division(clk_in,divclk);
+module clock_division #(parameter DIVCLK_CNTMAX = 49999)(clk_in,divclk);
  input clk_in;
  output divclk;
- parameter DIVCLK_CNTMAX = 49999; //时钟分频计数的最大值
+
  reg [31:0] cnt = 0; 
  reg divclk_reg = 0;
  always@(posedge clk_in) begin
