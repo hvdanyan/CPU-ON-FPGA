@@ -10,7 +10,8 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// The input ports of the module are CLK,write,activate,dp_jump,PCtraceback, PROGRAM1,PROGRAM2, Bytein, BTA. The output ports are Byteout and PC_delay.
+// The PCregister stores the value of the instruction that is now operated, which helps to control the operation of the cpu.
 // Dependencies: 
 // 
 // Revision:

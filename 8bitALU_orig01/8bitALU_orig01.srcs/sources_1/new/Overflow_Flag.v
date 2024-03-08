@@ -10,7 +10,8 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// In this module, the input ports are Reg_a, Reg_b, seg and CLK.the output port is the Reg_overflow.
+// Reg_overflow is affected by Reg and shows whether overflow happens in ALU or not.
 // Dependencies: 
 // 
 // Revision:
@@ -30,5 +31,5 @@ output reg Reg_overflow;
 always@(posedge CLK)
   //s=Reg_a+Reg_b;
   Reg_overflow=Reg_a[7] & Reg_b[7] & ~seg[7] | ~Reg_a[7] & ~Reg_b[7] & seg[7];
-  //Á½¸öÕýÊýÏà¼Ó¡£ÕýÊýµÄ·ûºÅÎ»Îª0£¬²úÉúÒç³öÊ±·ûºÅÎ»»á±ä³É1£¬´ËÊ±Òç³öÎ»ÖÃ1¡£Á½¸ö¸ºÊýÏà¼Ó¡£¸ºÊýµÄ·ûºÅÎ»Îª1£¬²úÉúÒç³öÊ±·ûºÅÎ»»á±ä³É0£¬´ËÊ±Òç³öÎ»ÖÃ1¡£//
+  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½Î»Îª0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Î»ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½Î»Îª1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Î»ï¿½ï¿½1ï¿½ï¿½//
 endmodule

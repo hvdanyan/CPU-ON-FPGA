@@ -1,3 +1,7 @@
+
+//discription:
+//Reg_zero shows whether seg is zero.
+
 module Zero_Flag(CLK,Reg_a,Reg_b,seg,Reg_zero);
 input [7:0] Reg_a;
 input [7:0] Reg_b;

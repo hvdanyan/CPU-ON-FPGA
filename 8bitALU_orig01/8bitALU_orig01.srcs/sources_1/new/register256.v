@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// A big register that can store 256 8-bit value.
 // Dependencies: 
 // 
 // Revision:

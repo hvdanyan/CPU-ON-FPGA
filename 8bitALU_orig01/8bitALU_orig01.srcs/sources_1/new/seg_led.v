@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// It's shows the value on the led on the FPGA board to make the instructions visible.
 // Dependencies: 
 // 
 // Revision:
@@ -27,18 +27,18 @@ output [3:0] seg_sel;
 output [7:0] seg_led;
 parameter DIVCLK_CNTMAX = 49999; //100M/50000 = 2khz
 wire clk_1K;
-//Àý»¯Ê±ÖÓ·ÖÆµÄ£¿é
+//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ó·ï¿½ÆµÄ£ï¿½ï¿½
 clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNTMAX)) my_clock(
 .clk_in(CLK),
 .divclk(clk_1K)
 );
-//Àý»¯¼ÆÊýÆ÷Ä£¿é
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 wire [1:0] bit_disp;
 counter counter(
 .clk(clk_1K),
 .cnt(bit_disp)
 );
-//Àý»¯¶àÂ·¸´ÓÃÆ÷Ä£¿é
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 reg [3:0] data_disp;
 always@(*)
 case(bit_disp)
@@ -47,12 +47,12 @@ case(bit_disp)
 2'b10 : data_disp = regB[7:4] ;
 2'b11 : data_disp = regB[3:0];
 endcase
-//Àý»¯ÊýÂë¹ÜÎ»Ñ¡ÒëÂëÄ£¿é
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»Ñ¡ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 seg_sel_decoder seg_sel_decoder(
 .bit_disp(bit_disp),
 .seg_sel(seg_sel)
 );
-//Àý»¯ÊýÂë¹Ü¶ÎÂëÒëÂëÄ£¿é
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 seg_led_decoder seg_led_decoder(
 .data_disp(data_disp),
 .seg_led(seg_led)

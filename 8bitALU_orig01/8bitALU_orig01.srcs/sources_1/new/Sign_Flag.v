@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// The variable Reg_sign is used to show whether the first number of seg is 0.
 // Dependencies: 
 // 
 // Revision:

@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// The place that stores instructions to be run.Now it's a series of instructions that can count the 14th number of the Fibonacci sequence.
 // Dependencies: 
 // 
 // Revision:

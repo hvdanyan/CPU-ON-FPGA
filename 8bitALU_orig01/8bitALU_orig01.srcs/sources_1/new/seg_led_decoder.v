@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// One basic fuction to show the digits.
 // Dependencies: 
 // 
 // Revision:

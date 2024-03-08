@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// This module is a commom type of a register which can store an 8-bit value.
 // Dependencies: 
 // 
 // Revision:
