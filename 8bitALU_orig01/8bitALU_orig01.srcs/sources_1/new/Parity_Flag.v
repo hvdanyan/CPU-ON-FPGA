@@ -10,7 +10,8 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// The input ports are Reg_a, Reg_b, seg and CLK. The output port is Reg_parity.
+// The value Reg_parity shows whether the output of ALU is zero.
 // Dependencies: 
 // 
 // Revision:
@@ -30,7 +31,7 @@ reg p;
 always@(posedge CLK)
 begin p=seg[7]^seg[6]^seg[5]^seg[4]^seg[3]^seg[2]^seg[1]^seg[0];
   if (p==1)
-  Reg_parity=1;//ÆæÊý¸ö1ÖÃÎª1
+  Reg_parity=1;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Îª1
   else Reg_parity=0;
   end
 endmodule

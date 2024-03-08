@@ -10,7 +10,10 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// The outputregister module acts as a register that selects between the values of regBtransmit and ALUout based on the MSB of regBtransmit. 
+// In the 8 bit cpu, it is used to delay the transmission for a clock cycle and transmit the value of regBtransmit or ALUout to REG_output.
+// The input ports are CLK, a clock signal, ALUout,and regBtransmit。
+// The output port is Reg_output
 // Dependencies: 
 // 
 // Revision:

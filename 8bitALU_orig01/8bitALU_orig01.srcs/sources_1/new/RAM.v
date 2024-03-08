@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// RAM gets value from Bregister and the output register. It transfer the value to the input of ALU.
 // Dependencies: 
 // 
 // Revision:
