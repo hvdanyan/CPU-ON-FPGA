@@ -1,0 +1,235 @@
+/* ---------------修改字体使css可以与Mac系统通用 ---------------- */
+/* 编辑者：Dexter                                               */
+/* 编辑日期：20220908                                          */
+/* 主要工作：                                                  */
+/*       宋体 替换为PostScriptName格式：SimSun                  */
+/*       黑体 替换为PostScriptName格式：SimHei                  */
+/*       楷体 替换为PostScriptName格式：KaiTi                  */
+/*   Times New Roman 替换为PostScriptName格式：TimesNewRomanPSMT */
+/* ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------ */
+/* 原css作者：乔诚                                               */
+/* 链接：https://forum-zh.obsidian.md/t/topic/2994/3            */
+/* 可用的字体 */
+/* 'Avenir Next' */
+/* 'Inter' */
+/* 'Source Code Pro' */
+/* 'Flow Circular' */
+/* "Segoe UI" */
+/* sans-serif,  */
+/* "Apple Color Emoji",  */
+/* "Segoe UI Emoji",  */
+/* "Segoe UI Symbol",  */
+/* monospace; */
+/* inherit; */
+/* 'Avenir Next', */
+/* "Microsoft YaHei Light", */
+/* sans-serif; */ 
+/* ------------------------------------------------------------ */
+
+.theme-light .markdown-reading-view{
+  background-color: #fff;
+}
+
+strong {
+  font-family: "TimesNewRomanPSMT","SimHei" ;
+  font-weight: bold;
+}
+p{
+  /* border: solid 1px #ff0000; */
+  font-family:"TimesNewRomanPSMT","SimSun";
+  text-decoration-line: none;
+  margin: 10px 0px;
+  line-height: 120%;
+  text-indent: 2em;
+  font-size: 20px;
+}
+
+h1{
+  font-family:"TimesNewRomanPSMT","SimSun";
+  font-size: 42px !important;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2{
+  font-family:"TimesNewRomanPSMT","SimHei";
+  font-weight: 700;
+  font-size: 35px !important;
+  font-weight: bold;
+  text-align: left;
+}
+h3{
+  font-family:"TimesNewRomanPSMT","SimHei";
+  font-weight: 700;
+  font-size: 25px !important;
+  font-weight: lighter;
+  text-align: left;
+}
+h4{
+  font-family:"TimesNewRomanPSMT","SimSun";
+  font-weight: 700;
+  font-weight: lighter;
+  font-size: 23px !important;
+  text-align: left;
+}
+
+
+
+h5,h6{
+  font-family:"TimesNewRomanPSMT","SimSun" !important;
+  font-weight: normal !important;
+  font-size: 20px !important;
+  text-align: left !important;
+}
+
+
+.footnote-link{
+  color:#2E3338; 
+  line-height: 10px !important;
+}
+sup {
+  vertical-align: 25%;
+  font-size: 10px;
+  
+}
+
+
+.image-embed{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+ul,
+ol{
+  /* border: solid 1px #ff0000; */
+  font-family:"TimesNewRomanPSMT","SimSun";
+  text-decoration-line: none;
+  margin: 10px 0px;
+  line-height: 120%;
+  font-size: 20px;
+
+}
+
+/* 普通表格 */
+
+
+/*预览表格全宽*/
+.markdown-preview-view table {
+width: 100%;
+margin-top: 12px;
+}
+
+/*表格框线、字体、内边距*/
+.markdown-preview-view td,
+.markdown-preview-view th {
+border: none;
+font-size: 14px;
+padding: 4px 10px;
+}
+/*表头框线、字体*/
+.theme-light .markdown-preview-view th {
+border-bottom: 1px solid #272727;
+border-top: 1px solid #272727;
+font-weight: 800;
+  background-color: #00000040;
+}
+/*表格背景填充灰色*/
+.theme-light .markdown-preview-view tr:nth-child(odd) {
+background-color: #00000030;
+}
+/*最后一行画横线*/
+.theme-light .markdown-preview-view tr:last-child {
+border-bottom: 1px solid  #272727;
+}
+
+/*黑暗主题*/
+.theme-dark .markdown-preview-view th {
+  border-bottom: 2px solid #666666;
+  border-top: 2px solid #999999;
+  font-weight: 800;
+}
+/*表格背景填充灰色*/
+.theme-dark .markdown-preview-view tr:nth-child(odd) {
+  background-color:  #ffffff30;
+}
+.theme-dark .markdown-preview-view tr:nth-child(even) {
+  background-color: #ffffff20;
+}
+/*最后一行画横线*/
+.theme-dark .markdown-preview-view tr:last-child {
+  border-bottom: 1px solid  #999999;
+}
+/* 图片表格 */
+/* 表头放图片、默认底对齐 */
+.markdown-preview-view blockquote th{
+  vertical-align: bottom;
+}
+/* 表头表行无填充、无边框 */
+.markdown-preview-view blockquote th,
+blockquote tr{
+  background-color: #00000000 !important;
+  border: none !important;
+}
+/* 表格默认顶对齐 */
+blockquote tr td{
+  vertical-align: top;
+}
+/* 表格体首行写图片标题：居中加粗字体 */
+blockquote table tbody tr:first-child {
+  font-family:"TimesNewRomanPSMT","SimSun";
+  font-weight: bold;
+  text-align: center;
+}
+blockquote{
+  border: none !important;
+  padding: 0px;
+  margin: 20px 50px;
+}
+blockquote p{
+  font-family:"KaiTi","TimesNewRomanPSMT";
+}
+.theme-light blockquote p{
+  color: #5f5f5f;
+}
+.theme-dark blockquote p{
+  color: #a1a1a1;
+}
+
+pre,
+code,
+.token,
+a{
+  background-color: #00000000 !important;
+  /* color: black; */
+  /* background: none; */
+  text-shadow: none !important;
+  text-decoration-line: none !important;
+}
+.theme-light a,
+.theme-light code{
+  color: #2e3338 !important;
+}
+.theme-dark a,
+.theme-dark code{
+  color: #dcddde !important;
+}
+
+
+pre{
+  border: solid 1px #000; 
+}
+
+code[class*="language-"]{
+  border-left:solid 5px #888 !important;
+  border-radius: 0px;
+  line-height: 1 !important;
+}
+.markdown-preview-view hr{
+  border: none;
+  border-top: 1px solid;
+  border-color: #000;
+}
