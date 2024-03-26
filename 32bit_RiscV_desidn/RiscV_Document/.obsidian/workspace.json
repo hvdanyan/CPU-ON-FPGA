@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Document_main.md",
-                "mode": "source",
+                "file": "基于RISC-V的32位处理器设计.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "36b8709d6daa90f2",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Document_main.md",
+                "file": "基于RISC-V的32位处理器设计.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Document_main.md",
+                "file": "基于RISC-V的32位处理器设计.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Document_main.md"
+                "file": "基于RISC-V的32位处理器设计.md"
               }
             }
           }
@@ -146,8 +147,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d3873fd9ed8f561d",
+  "active": "454a943441421fd3",
   "lastOpenFiles": [
-    "Document_main.md"
+    "RV32I-English.png",
+    "RV32I-B&R&J&U.png",
+    "RV32I-B&R&J&U.png.png",
+    "RV32I-R&I&S&U.png",
+    "基于RISC-V的32位处理器设计.md",
+    "RV32I-R:I:S:U.png",
+    "InstructionSet2.pptx"
   ]
 }
