@@ -57,7 +57,7 @@ module CPU_core(
     wire [1:0]mem_op;
     wire aluA_src;
     wire [1:0]aluB_src;
-    wire [2:0]alu_op;
+    wire [3:0]alu_op;
 
     wire [4:0]rd;
     wire [4:0]rs1;

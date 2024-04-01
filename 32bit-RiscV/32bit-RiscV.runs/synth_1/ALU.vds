@@ -1,0 +1,586 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr  1 18:00:15 2024
+# Process ID: 8688
+# Current directory: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1
+# Command line: vivado.exe -log ALU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ALU.tcl
+# Log file: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/ALU.vds
+# Journal file: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source ALU.tcl -notrace
+Command: synth_design -top ALU -part xc7a75tfgg484-2L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a75t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a75t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10176 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 356.266 ; gain = 98.598
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:23]
+WARNING: [Synth 8-3848] Net result_temp in module/entity ALU does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:30]
+WARNING: [Synth 8-3848] Net zero_temp in module/entity ALU does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:31]
+WARNING: [Synth 8-3848] Net less_temp in module/entity ALU does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (1#1) [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:23]
+WARNING: [Synth 8-3330] design ALU has an empty top module
+WARNING: [Synth 8-3331] design ALU has unconnected port result[31]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[30]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[29]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[28]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[27]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[26]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[25]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[24]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[23]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[22]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[21]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[20]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[19]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[18]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[17]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[16]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[15]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[14]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[13]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[12]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[11]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[10]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[9]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[8]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[7]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[6]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[5]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[4]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[3]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[2]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[1]
+WARNING: [Synth 8-3331] design ALU has unconnected port result[0]
+WARNING: [Synth 8-3331] design ALU has unconnected port zero
+WARNING: [Synth 8-3331] design ALU has unconnected port less
+WARNING: [Synth 8-3331] design ALU has unconnected port clock
+WARNING: [Synth 8-3331] design ALU has unconnected port A[31]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[30]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[29]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[28]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[27]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[26]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[25]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[24]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[23]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[22]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[21]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[20]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[19]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[18]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[17]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[16]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[15]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[14]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[13]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[12]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[11]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[10]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[9]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[8]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[7]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[6]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[5]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[4]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[3]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[2]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[1]
+WARNING: [Synth 8-3331] design ALU has unconnected port A[0]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[31]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[30]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[29]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[28]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[27]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[26]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[25]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[24]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[23]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[22]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[21]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[20]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[19]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[18]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[17]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[16]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[15]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[14]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[13]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[12]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[11]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[10]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[9]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[8]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[7]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[6]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[5]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[4]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[3]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[2]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[1]
+WARNING: [Synth 8-3331] design ALU has unconnected port B[0]
+WARNING: [Synth 8-3331] design ALU has unconnected port ALU_op[3]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 411.277 ; gain = 153.609
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 411.277 ; gain = 153.609
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 411.277 ; gain = 153.609
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a75tfgg484-2L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc]
+WARNING: [Vivado 12-584] No ports matched 'CLK100MHz'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'CLK100MHz'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[4]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[4]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[5]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[5]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[6]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[6]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[7]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[7]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:25]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[8]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:26]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:26]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'key[8]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:27]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:30]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:30]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:31]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ina[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:37]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:37]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:38]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:38]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:39]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:39]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:40]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:40]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:41]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:41]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:42]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:42]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:43]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:43]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:44]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:44]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'inb[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:66]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:67]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:67]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[4]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:74]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:74]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[4]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:75]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:75]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[5]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:76]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:76]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[5]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:77]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[6]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:78]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[6]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:79]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[7]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:80]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:80]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_out[7]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:81]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:81]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitron_sel[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronA_out[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[0]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[1]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[2]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digitronB_out[3]'. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Constraints 18-5210] No constraint will be written out.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 663.586 ; gain = 0.922
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 663.586 ; gain = 405.918
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a75tfgg484-2L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 663.586 ; gain = 405.918
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 663.586 ; gain = 405.918
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 663.586 ; gain = 405.918
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 180 (col length:80)
+BRAMs: 210 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3330] design ALU has an empty top module
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 663.586 ; gain = 405.918
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 729.477 ; gain = 471.809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 729.477 ; gain = 471.809
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 729.477 ; gain = 471.809
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 730.867 ; gain = 473.199
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 730.867 ; gain = 473.199
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 730.867 ; gain = 473.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 730.867 ; gain = 473.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 730.867 ; gain = 473.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 730.867 ; gain = 473.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |OBUFT |    34|
++------+------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    34|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 730.867 ; gain = 473.199
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 104 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 730.867 ; gain = 220.891
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 730.867 ; gain = 473.199
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+12 Infos, 182 Warnings, 76 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 752.168 ; gain = 507.527
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/ALU.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ALU_utilization_synth.rpt -pb ALU_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 752.445 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Apr  1 18:00:36 2024...
