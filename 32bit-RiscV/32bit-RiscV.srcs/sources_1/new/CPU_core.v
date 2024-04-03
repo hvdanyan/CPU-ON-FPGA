@@ -23,8 +23,7 @@
 module CPU_core(
     input CLK,
     input [8:0]key,
-    input [3:0]ina,inb,
-    input [8:0]key
+    input [3:0]ina,inb
     );
 
     parameter BIT_INDEX = 12 - 1;

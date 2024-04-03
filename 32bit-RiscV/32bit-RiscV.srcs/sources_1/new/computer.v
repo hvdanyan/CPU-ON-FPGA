@@ -30,13 +30,12 @@ module computer(
 
     );
 
-    CPU_core CPU_core(
-        .CLK(CLK100MHz),
-        .key(key),
-        .ina(ina),
-        .inb(inb),
-        .key(key)
-    );
+   CPU_core CPU_core (
+    .CLK(CLK100MHz),
+    .key(key),
+    .ina(ina),
+    .inb(inb)
+);
 
     digitron_display digitron_display(
         .CLK(CLK100MHz),
