@@ -39,9 +39,11 @@ module RAM #(
        
        Mux4096way8bit Mux4096way8bit_inst(write_en, addr, writeout);
        register4096 register4096_inst(clock, writeout, data_in, Memory);
-       DMux4096way8bit DMux4096way8bit_0(Memory, addr, data_out0);
+        DMux4096way32bit DMux4096way32bit_1(Memory, addr, data_out);
+       /*DMux4096way8bit DMux4096way8bit_0(Memory, addr, data_out0);
        DMux4096way8bit DMux4096way8bit_1(Memory, addr+2'b000000000001, data_out1);
        DMux4096way8bit DMux4096way8bit_2(Memory, addr+2'b000000000010, data_out2);
        DMux4096way8bit DMux4096way8bit_3(Memory, addr+2'b000000000011, data_out3);
-       assign data_out[31:0]={data_out3,data_out2,data_out1,data_out0};
+       assign data_out[31:0]={data_out3,data_out2,data_out1,data_out0};*/
 endmodule
+

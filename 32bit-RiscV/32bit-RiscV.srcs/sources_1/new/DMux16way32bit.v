@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2024/04/02 10:31:07
+// Create Date: 2024/04/09 09:53:00
 // Design Name: 
-// Module Name: DMux16way8bit
+// Module Name: DMux16way32bit
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module DMux16way8bit(
-   input [0:15][7:0]Memory,
-   input [3:0]addr,
-   output [7:0]Memoryout
+module DMux16way32bit(
+input [0:15][7:0]Memory,
+   input [1:0]addr,
+   output [31:0]Memoryout
     );
     wire [7:0]M10,M11,M12,M13,M14,M15,M16,M17;
         DMux8bit DMux8bit_0 (Memory[0], Memory[1], addr[0], M10);
@@ -41,10 +41,5 @@ module DMux16way8bit(
         DMux8bit DMux8bit_10 (M14, M15, addr[1], M22);
         DMux8bit DMux8bit_11 (M16, M17, addr[1], M23);
         
-        wire [7:0] M30, M31;
-        DMux8bit DMux8bit_12 (M20, M21, addr[2], M30);
-        DMux8bit DMux8bit_13 (M22, M23, addr[2], M31);
-        
-        DMux8bit DMux8bit_14 (M30, M31, addr[3], Memoryout);
+       assign Memoryout[31:0]={M20,M21,M22,M23};
 endmodule
-

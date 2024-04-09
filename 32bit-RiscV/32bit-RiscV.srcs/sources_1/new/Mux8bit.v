@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2024/04/01 14:52:26
+// Create Date: 2024/04/02 10:34:20
 // Design Name: 
 // Module Name: Mux8bit
 // Project Name: 
@@ -38,3 +38,4 @@ module Mux8bit(
            end
        end
 endmodule
+

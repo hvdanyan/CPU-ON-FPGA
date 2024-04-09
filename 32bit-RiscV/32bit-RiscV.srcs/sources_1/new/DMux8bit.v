@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2024/04/01 15:50:54
+// Create Date: 2024/04/02 10:31:50
 // Design Name: 
 // Module Name: DMux8bit
 // Project Name: 
@@ -31,3 +31,4 @@ module DMux8bit(
            if( switch==1 ) Memoryout = Memory1;
        end
 endmodule
+
