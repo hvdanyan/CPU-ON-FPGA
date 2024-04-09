@@ -31,4 +31,15 @@ module GP_registers(
     );
 
     reg [31:0]registers[31:0];
+
+    always @(posedge clock) begin
+        if(write_reg != 0) begin
+            registers[write_reg] <= write_data;
+        end
+    end
+
+    assign A = registers[read_regA];
+    assign B = registers[read_regB];
+
+    
 endmodule
