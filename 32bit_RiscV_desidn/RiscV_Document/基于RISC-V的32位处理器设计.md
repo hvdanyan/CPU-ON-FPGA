@@ -801,4 +801,86 @@ fig.3.1-译码单元的控制信号
 
 因此，ALU
 
+# 4-RISC-V的编译和汇编
 
+RISC-V的编译和汇编采用Riscv的官方交叉汇编工具，即riscv64-unknown-elf-gcc。它的仓库地址是[https://github.com/riscv-collab/riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)。
+
+构建RISC-V的编译和汇编工具，需要按照仓库的README.md文件中的步骤进行。因为在实际操作过程中略有出入，故在此记录Ubuntu下的构建步骤。
+
+## 4.1-交叉编译工具安装
+
+## 4.1.1-获取源代码
+
+```shell
+git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+```
+
+## 4.1.2-安装依赖
+
+```shell
+sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev
+```
+
+## 4.1.3-构建
+
+选择安装的目录，一般是`/opt/riscv`。我们需要将`/opt/riscv/bin`添加到 `PATH` 中。
+
+添加方法：在`~/.bashrc`文件中添加以下内容：
+
+```
+export PATH=$PATH:/opt/riscv/bin
+```
+
+然后执行以下命令：
+
+```shell
+cd riscv-gnu-toolchain
+mkdir build
+cd build
+../configure --prefix=/opt/riscv --with-arch=rv32im --with-abi=ilp32
+make -j8
+```
+
+j8表示使用8个线程进行编译。上面的命令安装了32位的RISC-V编译工具。
+
+如果需要同时安装64位的RISC-V编译工具，可以执行以下命令：
+
+```shell
+../configure --prefix=/opt/riscv --enable-multilib
+```
+
+## 4.1.4-测试
+
+编译完成后，可以使用以下命令测试：
+
+```shell
+/opt/riscv/bin/riscv64-unknown-elf-gcc --version
+```
+
+如果是编译32位的工具，可以使用以下命令测试：
+
+```shell
+/opt/riscv/bin/riscv32-unknown-elf-gcc --version
+```
+
+# 4.2 编译和汇编操作
+
+使用指令
+
+```shell
+riscv32-unknown-elf-gcc -S hello.c
+```
+
+来取得hello.c的汇编代码；使用指令
+
+```shell
+riscv32-unknown-elf-gcc -c hello.c
+```
+
+来取得hello.c的目标文件。
+
+为了查看其二进制编码，可以使用objdump工具：
+
+```shell
+riscv32-unknown-elf-objdump -d hello.o
+```
