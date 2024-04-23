@@ -208,6 +208,7 @@ module instr_decoder (
                     3'b111: alu_op_reg <= 4'b0111;
                 endcase
             end
+        endcase
     end
 
     assign imm = imm_reg;
