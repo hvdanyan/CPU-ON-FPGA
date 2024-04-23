@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Apr  2 13:40:42 2024
-# Process ID: 13972
+# Start of session at: Tue Apr  9 15:59:07 2024
+# Process ID: 4728
 # Current directory: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1
 # Command line: vivado.exe -log computer.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source computer.tcl
 # Log file: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/computer.vds
@@ -15,141 +15,12 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a75t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a75t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13272 
-WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode of verilog [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux256way8bit.v:28]
-WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode of verilog [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux4096way8bit.v:28]
-WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode of verilog [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/RAM.v:34]
-WARNING: [Synth 8-2369] multiple packed dimensions are not allowed in this mode of verilog [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 368.273 ; gain = 111.461
----------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'computer' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:23]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:33]
-INFO: [Synth 8-6157] synthesizing module 'CPU_core' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v:23]
-	Parameter BIT_INDEX bound to: 11 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'PC_register' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'PC_register' (1#1) [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v:23]
-INFO: [Synth 8-6157] synthesizing module 'ROM' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:23]
-	Parameter BIT_INDEX bound to: 11 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'DMux4096way8bit' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux4096way8bit.v:23]
-INFO: [Synth 8-6157] synthesizing module 'DMux256way8bit' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux256way8bit.v:23]
-INFO: [Synth 8-6157] synthesizing module 'DMux16way8bit' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v:23]
-INFO: [Synth 8-6157] synthesizing module 'DMux8bit' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux8bit.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'DMux8bit' (2#1) [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux8bit.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'DMux16way8bit' (3#1) [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'DMux256way8bit' (4#1) [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux256way8bit.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'DMux4096way8bit' (5#1) [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux4096way8bit.v:23]
-WARNING: [Synth 8-3848] Net Memory[4095] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4094] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4093] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4092] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4091] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4090] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4089] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4088] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4087] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4086] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4085] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4084] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4083] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4082] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4081] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4080] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4079] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4078] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4077] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4076] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4075] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4074] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4073] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4072] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4071] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4070] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4069] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4068] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4067] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4066] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4065] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4064] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4063] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4062] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4061] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4060] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4059] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4058] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4057] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4056] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4055] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4054] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4053] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4052] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4051] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4050] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4049] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4048] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4047] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4046] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4045] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4044] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4043] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4042] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4041] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4040] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4039] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4038] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4037] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4036] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4035] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4034] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4033] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4032] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4031] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4030] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4029] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4028] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4027] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4026] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4025] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4024] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4023] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4022] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4021] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4020] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4019] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4018] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4017] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4016] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4015] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4014] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4013] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4012] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4011] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4010] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4009] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4008] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4007] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4006] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4005] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4004] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4003] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4002] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4001] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[4000] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[3999] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[3998] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[3997] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-WARNING: [Synth 8-3848] Net Memory[3996] in module/entity ROM does not have driver. [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:30]
-INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6155] done synthesizing module 'ROM' (6#1) [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:23]
-ERROR: [Synth 8-439] module 'instr_decoder' not found [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v:65]
-ERROR: [Synth 8-6156] failed synthesizing module 'CPU_core' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v:23]
-ERROR: [Synth 8-6156] failed synthesizing module 'computer' [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:23]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 478.234 ; gain = 221.422
----------------------------------------------------------------------------------
-RTL Elaboration failed
+INFO: Helper process launched with PID 2152 
+ERROR: [Synth 8-2576] procedural assignment to a non-register result_temp is not permitted [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:27]
+INFO: [Synth 8-2350] module ALU ignored due to previous errors [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:1]
+Failed to read verilog 'C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v'
 INFO: [Common 17-83] Releasing license: Synthesis
-17 Infos, 105 Warnings, 0 Critical Warnings and 4 Errors encountered.
+3 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
 synth_design failed
 ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
-INFO: [Common 17-206] Exiting Vivado at Tue Apr  2 13:40:58 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr  9 15:59:12 2024...
