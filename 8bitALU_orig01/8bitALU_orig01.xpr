@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/dachuang/CPU-ON-FPGA/8bitALU_orig01/8bitALU_orig01.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/huyan/Desktop/CPU-ON-FPGA/8bitALU_orig01/8bitALU_orig01.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="7755519ee1404798b67c6ccfa6c7a85a"/>
@@ -350,14 +350,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/Int_adder.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="computer"/>
@@ -420,28 +412,27 @@
         <Step Id="synth_design">
           <Option Id="ResourceSharing">2</Option>
           <Option Id="NoCombineLuts">1</Option>
+          <Option Id="RepFanoutThreshold">400</Option>
           <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="ShregMinSize">5</Option>
           <Option Id="FsmExtraction">1</Option>
-          <Option Id="RepFanoutThreshold">400</Option>
         </Step>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="synth_2" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a75tfgg484-2" ConstrsSet="constrs_1" Description="Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_2" IncludeInArchive="true">
+    <Run Id="synth_2" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a75tfgg484-2" ConstrsSet="constrs_1" Description="Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ResourceSharing">2</Option>
           <Option Id="NoCombineLuts">1</Option>
+          <Option Id="RepFanoutThreshold">400</Option>
           <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="ShregMinSize">5</Option>
           <Option Id="FsmExtraction">1</Option>
-          <Option Id="RepFanoutThreshold">400</Option>
         </Step>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>

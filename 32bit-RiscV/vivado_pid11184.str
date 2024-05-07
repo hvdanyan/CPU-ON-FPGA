@@ -1,0 +1,511 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:03:12 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 11184
+License: Customer
+
+Current time: 	Tue May 07 11:09:20 IRKT 2024
+Time zone: 	Irkutsk Time (Asia/Irkutsk)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1512x945
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 154 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2018.2/tps/win64/jre
+Java executable location: 	C:/Xilinx/Vivado/2018.2/tps/win64/jre/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	huyan
+User home directory: C:/Users/huyan
+User working directory: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2018.2
+RDI_DATADIR: C:/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: C:/Users/huyan/AppData/Roaming/Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: C:/Users/huyan/AppData/Roaming/Xilinx/Vivado/2018.2/
+Vivado layouts directory: C:/Users/huyan/AppData/Roaming/Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/vivado.log
+Vivado journal file location: 	C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/vivado.jou
+Engine tmp dir: 	C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/.Xil/Vivado-11184-091F
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2018.2
+XILINX_SDK: C:/Xilinx/SDK/2018.2
+XILINX_VIVADO: C:/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	167 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 722 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 62 MB (+62755kb) [00:00:09]
+// [Engine Memory]: 667 MB (+548067kb) [00:00:09]
+// bx (ck):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.xpr. Version: Vivado v2018.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.xpr 
+// [GUI Memory]: 70 MB (+4392kb) [00:00:10]
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'C:/dachuang/CPU-ON-FPGA/32bit-RiscV' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// HMemoryUtils.trashcanNow. Engine heap size: 757 MB. GUI used memory: 36 MB. Current time: 5/7/24 11:09:22 AM IRKT
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'. 
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 811 MB (+115856kb) [00:00:16]
+// Tcl Message: open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 878.688 ; gain = 152.082 
+// Project name: 32bit-RiscV; location: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV; part: xc7a75tfgg484-2L
+dismissDialog("Open Project"); // bx (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// a (ck): Critical Messages: addNotify
+// TclEventType: DG_GRAPH_GENERATED
+// [Engine Memory]: 859 MB (+7551kb) [00:00:24]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectList(PAResourceAtoD.CmdMsgDialog_MESSAGES, "[Project 1-311] Could not find the file 'C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v', nor could it be found using path 'C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v'.", 0); // b (D, a)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 869 MB. GUI used memory: 39 MB. Current time: 5/7/24 11:09:37 AM IRKT
+dismissDialog("Critical Messages"); // a (ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // B (D, ck)
+// PAPropertyPanels.initPanels (DMux16way8bit.v) elapsed time: 0.3s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux16way8bit.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux16way8bit.v]", 2, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_IMPORT_ALL_SRCS, "Copy All Files Into Project"); // ad (aj, ck)
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux16way8bit.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux16way8bit.v]", 2, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux16way8bit.v]", 2, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+// TclEventType: DG_GRAPH_GENERATED
+selectMenuItem(PAResourceCommand.PACommandNames_IMPORT_ALL_SRCS, "Copy All Files Into Project"); // ad (aj, ck)
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux4096way8bit.v]", 3, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux4096way8bit.v]", 3, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux4096way8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 78 MB (+4725kb) [00:00:47]
+// aE (ck): Remove Sources: addNotify
+// bx (aE):  Remove Sources : addNotify
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux4096way8bit.v 
+dismissDialog("Remove Sources"); // bx (aE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux16way8bit.v]", 5, false); // B (D, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux16way8bit.v]", 5, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux16way8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux16way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux8bit.v]", 4, false); // B (D, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux8bit.v]", 4, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux8bit.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux16way8bit.v]", 5, false); // B (D, ck)
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux16way8bit.v]", 5, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_IMPORT_ALL_SRCS, "Copy All Files Into Project"); // ad (aj, ck)
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux16way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux256way8bit.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux256way8bit.v]", 2, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux256way8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux256way8bit.v 
+// [GUI Memory]: 82 MB (+1044kb) [00:01:05]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux4096way8bit.v]", 4, false); // B (D, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux4096way8bit.v]", 4, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux4096way8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux4096way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux64way8bit.v]", 5, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux64way8bit.v]", 5, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux64way8bit.v] -no_script -reset -force -quiet 
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 87 MB (+462kb) [00:01:11]
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux64way8bit.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux256way8bit.v]", 3, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+// TclEventType: DG_GRAPH_GENERATED
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux256way8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux256way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux4096way8bit.v]", 4, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux4096way8bit.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux64way8bit.v]", 5, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// TclEventType: DG_GRAPH_GENERATED
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux64way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Mux8bit.v]", 6, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux8bit.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux8bit.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux256way8bit.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, DMux256way8bit.v]", 2, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+// TclEventType: DG_GRAPH_GENERATED
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux256way8bit.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, register4096.v]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, register4096.v]", 2, false, false, false, false, true, false); // B (D, ck) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ad (aj, ck)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (ck): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (ck)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/register4096.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/register4096.v 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 39 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, computer (computer.v)]", 1); // B (D, ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, computer (computer.v), CPU_core : CPU_core (CPU_core.v)]", 4); // B (D, ck)
+// Elapsed time: 174 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// A (ck): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (A)
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Synthesis is Out-of-date"); // A (ck)
+// TclEventType: RUN_MODIFY
+// [GUI Memory]: 92 MB (+234kb) [00:05:16]
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 895 MB. GUI used memory: 40 MB. Current time: 5/7/24 11:14:27 AM IRKT
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+// TclEventType: RUN_LAUNCH
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -jobs 4 
+// Tcl Message: [Tue May  7 11:14:29 2024] Launched synth_1... Run output will be captured here: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/runme.log [Tue May  7 11:14:29 2024] Launched impl_1... Run output will be captured here: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 15 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-311] Could not find the file 'C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v', nor could it be found using path 'C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v'.. ]", 2); // ah (O, ck)
+collapseTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-311] Could not find the file 'C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v', nor could it be found using path 'C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v'.. ]", 2); // ah (O, ck)
+// Elapsed time: 18 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1717] cannot access memory rg_tb directly [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v:94]. ]", 4, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.srcs\sources_1\new\CPU_core.v;-;;-;16;-;line;-;94;-;;-;16;-;"); // ah (O, ck)
+// Elapsed time: 25 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1717] cannot access memory rg_tb directly [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v:94]. ]", 4, false); // ah (O, ck)
+selectCodeEditor("CPU_core.v", 218, 182); // ce (w, ck)
+selectCodeEditor("CPU_core.v", 218, 182, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 20 seconds
+selectButton(PAResourceQtoS.SrcFilePropPanels_TYPE, (String) null); // q (ch, ck)
+// Y (ck): Set Type: addNotify
+selectComboBox(PAResourceQtoS.SrcFileTypeComboBox_SOURCE_FILE_TYPE, "SystemVerilog", 2); // ci (Q, Y)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (Y)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: set_property file_type SystemVerilog [get_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v] 
+dismissDialog("Set Type"); // Y (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// [Engine Memory]: 906 MB (+4186kb) [00:07:07]
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 4 
+// Tcl Message: [Tue May  7 11:16:17 2024] Launched synth_1... Run output will be captured here: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 16 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1725] cannot assign to memory registers_testbench directly [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v:45]. ]", 4, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.srcs\sources_1\new\GP_registers.v;-;;-;16;-;line;-;45;-;;-;16;-;"); // ah (O, ck)
+selectButton(PAResourceQtoS.SrcFilePropPanels_TYPE, (String) null); // q (ch, ck)
+// Y (ck): Set Type: addNotify
+selectComboBox(PAResourceQtoS.SrcFileTypeComboBox_SOURCE_FILE_TYPE, "SystemVerilog", 2); // ci (Q, Y)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (Y)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: set_property file_type SystemVerilog [get_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v] 
+dismissDialog("Set Type"); // Y (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 4 
+// Tcl Message: [Tue May  7 11:16:53 2024] Launched synth_1... Run output will be captured here: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 22 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-2543] port connections cannot be mixed ordered and named [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:46]. ]", 4, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.srcs\sources_1\new\computer.v;-;;-;16;-;line;-;46;-;;-;16;-;"); // ah (O, ck)
+// Elapsed time: 77 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CPU_core.v", 1); // k (j, ck)
+selectButton(RDIResource.HCodeEditor_CLOSE, (String) null); // k (aI, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "computer.v", 3); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CPU_core.v", 1); // k (j, ck)
+selectCodeEditor("CPU_core.v", 99, 263); // ce (w, ck)
+typeControlKey((HResource) null, "CPU_core.v", 'c'); // ce (w, ck)
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "computer.v", 3); // k (j, ck)
+selectCodeEditor("computer.v", 64, 135); // ce (w, ck)
+typeControlKey((HResource) null, "computer.v", 'c'); // ce (w, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-2543] port connections cannot be mixed ordered and named [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:46]. ]", 4, false); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-2543] port connections cannot be mixed ordered and named [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:46]. ]", 4, false, false, false, false, true, false); // ah (O, ck) - Popup Trigger
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 81 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h (cM, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// aj (ck): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: RUN_MODIFY
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// Tcl Message: launch_runs synth_1 -jobs 4 
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Tue May  7 11:20:54 2024] Launched synth_1... Run output will be captured here: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 3 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 18 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1717] cannot access memory rg_tb directly [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:53]. ]", 4, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.srcs\sources_1\new\computer.v;-;;-;16;-;line;-;53;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1717] cannot access memory rg_tb directly [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:53]. ]", 4, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.srcs\sources_1\new\computer.v;-;;-;16;-;line;-;53;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1717] cannot access memory rg_tb directly [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:53]. ]", 4, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.srcs\sources_1\new\computer.v;-;;-;16;-;line;-;53;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1717] cannot access memory rg_tb directly [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:53]. ]", 4, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;C:\Users\huyan\Desktop\CPU-ON-FPGA\32bit-RiscV\32bit-RiscV.srcs\sources_1\new\computer.v;-;;-;16;-;line;-;53;-;;-;16;-;"); // ah (O, ck)
+selectButton(PAResourceQtoS.SrcFilePropPanels_TYPE, (String) null); // q (ch, ck)
+// Y (ck): Set Type: addNotify
+selectComboBox(PAResourceQtoS.SrcFileTypeComboBox_SOURCE_FILE_TYPE, "SystemVerilog", 2); // ci (Q, Y)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (Y)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: set_property file_type SystemVerilog [get_files  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v] 
+dismissDialog("Set Type"); // Y (ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 918 MB. GUI used memory: 44 MB. Current time: 5/7/24 11:21:23 AM IRKT
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 4 
+// Tcl Message: [Tue May  7 11:21:23 2024] Launched synth_1... Run output will be captured here: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 262ms to process. Increasing delay to 2000 ms.
+// WARNING: HTimer (ExpRunMgr Pending Runs Timer) is taking 432ms to process. Increasing delay to 3000 ms.
+// ah (ck): Synthesis Completed: addNotify
+// [GUI Memory]: 97 MB (+410kb) [00:36:33]
+// HMemoryUtils.trashcanNow. Engine heap size: 918 MB. GUI used memory: 44 MB. Current time: 5/7/24 11:51:23 AM IRKT
+// HMemoryUtils.trashcanNow. Engine heap size: 918 MB. GUI used memory: 42 MB. Current time: 5/7/24 12:29:05 PM IRKT
+// HMemoryUtils.trashcanNow. Engine heap size: 918 MB. GUI used memory: 42 MB. Current time: 5/7/24 1:08:47 PM IRKT
+// HMemoryUtils.trashcanNow. Engine heap size: 918 MB. GUI used memory: 42 MB. Current time: 5/7/24 1:58:13 PM IRKT
+// HMemoryUtils.trashcanNow. Engine heap size: 918 MB. GUI used memory: 41 MB. Current time: 5/7/24 2:28:14 PM IRKT
+// Elapsed time: 11960 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Synthesis Completed"); // ah (ck)

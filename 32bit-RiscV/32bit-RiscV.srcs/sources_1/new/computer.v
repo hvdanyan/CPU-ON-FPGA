@@ -43,11 +43,14 @@ module computer(
       .clk_div(CLK_SLOW)
       );
 
-   CPU_core CPU_core (
-    .CLK(CLK_SLOW),
-    .key(key),
-    .ina(ina),
-    .inb(inb),
+
+    wire [31:0]rg_tb[31:0];
+    CPU_core CPU_core (
+        .CLK(CLK_SLOW),
+        .key(key),
+        .ina(ina),
+        .inb(inb),
+        .rg_tb(rg_tb)
 );
 
     digitron_display digitron_display(
