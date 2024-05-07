@@ -170,7 +170,7 @@ sltiu rd, rs1, imm
 |立即数[11:0]|源寄存器1[4:0]|011|目的寄存器[4:0]|0010011|
 |---|---|---|---|---|
 
-sltiu还可以产生一个衍生指令seqz，即set equal to zero。当rs1=0时，sltiu指令的功能是将0与imm进行无符号数比较，结果是相等。因此，sltiu指令的功能是将0存入rd中，这就是seqz指令。
+sltiu还可以产生一个衍生指令seqz，即set equal to zero。当rs1=0时，sltiu指令的功能是将0与imm进行无符号数比较，结果是相等。因此，sltiu指令的功能是将布尔数存入rd中，这就是seqz指令。
 
 ```
 seqz rd, rs    <==>    sltiu rd, rs1, 0

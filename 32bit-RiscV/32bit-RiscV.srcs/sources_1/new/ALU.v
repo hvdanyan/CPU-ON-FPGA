@@ -1,5 +1,4 @@
 module ALU(
-    input clock,
     input [31:0] A,
     input [31:0] B,
     input [3:0] ALU_op,
@@ -7,24 +6,26 @@ module ALU(
     output zero,
     output less
 );
-    wire [31:0] result_temp;
-    wire zero_temp;
-    wire less_temp;
-    wire [3:0] ALU_op_part;  // 中间信号
+
+    reg [31:0] result_temp;
+    reg zero_temp,less_temp;
     
-    assign ALU_op_part = ALU_op[3:0];  // 将部分信号赋值给中间信号
-    
-    always @(posedge) begin
-        if (ALU_op[2:0] == 3'b000)
-            ALU_Adder ALU_Adder_inst(A, B, ALU_op_part, result_temp, zero_temp, less_temp);
-        if ((ALU_op[2:0] == 3'b001) || (ALU_op[2:0] == 3'b101))
-            ALU_Shifter ALU_Shifter_inst(A, B, ALU_op_part, result_temp, zero_temp, less_temp);
-        if ((ALU_op[2:0] == 3'b100) || (ALU_op[2:0] == 3'b110) || (ALU_op[2:0] == 3'b111))
-            ALU_Logic ALU_Logic_inst(A, B, ALU_op_part, result_temp, zero_temp, less_temp);
-        if (ALU_op[2:0] == 3'b010)
-            ALU_Sub ALU_Sub_inst(A, B, ALU_op_part, result_temp, zero_temp, less_temp);
-        if (ALU_op[2:0] == 3'b011)
-            result_temp = B[31:0];
+    always @(*) begin
+        case(ALU_op[2:0])
+            3'b000: result_temp = ALU_op[3] ? A - B : A + B;
+            3'b001: result_temp = B << A;
+            3'b010: begin
+                result_temp <= ALU_op[3] ? (A < B ? 1'b1 : 1'b0) : ($signed(A) < $signed(B) ? 1'b1 : 1'b0);
+                less_temp <= result;
+                zero_temp <= result == 0 ? 1'b1 : 1'b0;
+            end
+            3'b011: result_temp = B;
+            3'b100: result_temp = A ^ B;
+            3'b101: result_temp = ALU_op[3] ? A >>> B : A >> B;
+            3'b110: result_temp = A | B;
+            3'b111: result_temp = A & B;
+            default: result_temp = 0;
+        endcase
     end
     
     assign result = result_temp;

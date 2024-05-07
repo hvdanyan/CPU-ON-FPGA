@@ -23,7 +23,8 @@
 module CPU_core(
     input CLK,
     input [8:0]key,
-    input [3:0]ina,inb
+    input [3:0]ina,inb,
+    output [31:0]rg_tb[31:0]
     );
 
     parameter BIT_INDEX = 12 - 1;
@@ -63,7 +64,6 @@ module CPU_core(
     wire [4:0]rs2;
 
     instr_decoder instr_decoder(
-        .clock(CLK),
         .instr(instruction),
         .imm(imm),
         .ext_op(ext_op),
@@ -81,7 +81,7 @@ module CPU_core(
     );
 
     wire [31:0]write_data;
-    wire [31:0]regA_data,regB_data;
+    wire [31:0]rs1_data,rs2_data;
 
     GP_registers GP_registers(
         .clock(CLK),
@@ -90,7 +90,8 @@ module CPU_core(
         .read_regA(rs1),
         .read_regB(rs2),
         .A(rs1_data),
-        .B(rs2_data)
+        .B(rs2_data),
+        .registers_testbench(rg_tb)
     );
 
     wire [31:0] aluA_data,aluB_data;
@@ -102,7 +103,6 @@ module CPU_core(
     wire zero,less;
 
     ALU ALU(
-        .clock(CLK),
         .A(aluA_data),
         .B(aluB_data),
         .ALU_op(alu_op),
@@ -120,7 +120,7 @@ module CPU_core(
         .addr(ALU_result[BIT_INDEX:0]),
         .data_in(rs2_data),
         .write_en(mem_write),
-        .dataout(mem_data)
+        .data_out(mem_data)
     );
 
     PC_adder PC_adder(

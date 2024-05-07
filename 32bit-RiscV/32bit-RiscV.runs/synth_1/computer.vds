@@ -2,12 +2,12 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Apr  9 15:59:07 2024
-# Process ID: 4728
-# Current directory: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1
+# Start of session at: Mon May  6 21:33:23 2024
+# Process ID: 3440
+# Current directory: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1
 # Command line: vivado.exe -log computer.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source computer.tcl
-# Log file: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/computer.vds
-# Journal file: C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1\vivado.jou
+# Log file: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/computer.vds
+# Journal file: C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source computer.tcl -notrace
 Command: synth_design -top computer -part xc7a75tfgg484-2L
@@ -15,12 +15,770 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a75t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a75t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2152 
-ERROR: [Synth 8-2576] procedural assignment to a non-register result_temp is not permitted [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:27]
-INFO: [Synth 8-2350] module ALU ignored due to previous errors [C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:1]
-Failed to read verilog 'C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v'
+INFO: Helper process launched with PID 5324 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 436.934 ; gain = 97.230
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'computer' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:23]
+	Parameter DIVCLK_CNT_FAST bound to: 49999 - type: integer 
+	Parameter DIVCLK_CNT_SLOW bound to: 19999999 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'clock_division' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v:24]
+	Parameter DIVCLK_CNTMAX bound to: 49999 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clock_division' (1#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v:24]
+INFO: [Synth 8-6157] synthesizing module 'clock_division__parameterized0' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v:24]
+	Parameter DIVCLK_CNTMAX bound to: 19999999 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clock_division__parameterized0' (1#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v:24]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:47]
+INFO: [Synth 8-6157] synthesizing module 'CPU_core' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v:23]
+	Parameter BIT_INDEX bound to: 11 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'PC_register' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'PC_register' (2#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ROM' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:23]
+	Parameter BIT_INDEX bound to: 11 - type: integer 
+WARNING: [Synth 8-3848] Net Memory[0] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[1] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[2] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[3] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[4] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[5] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[6] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[7] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[8] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[9] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[10] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[11] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[12] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[13] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[14] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[15] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[16] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[17] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[18] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[19] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[20] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[21] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[22] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[23] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[24] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[25] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[26] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[27] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[28] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[29] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[30] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[31] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[32] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[33] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[34] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[35] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[36] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[37] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[38] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[39] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[40] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[41] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[42] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[43] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[44] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[45] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[46] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[47] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[48] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[49] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[50] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[51] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[52] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[53] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[54] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[55] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[56] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[57] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[58] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[59] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[60] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[61] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[62] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[63] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[64] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[65] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[66] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[67] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[68] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[69] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[70] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[71] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[72] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[73] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[74] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[75] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[76] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[77] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[78] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[79] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[80] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[81] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[82] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[83] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[84] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[85] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[86] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[87] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[88] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[89] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[90] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[91] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[92] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[93] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[94] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[95] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[96] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[97] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[98] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+WARNING: [Synth 8-3848] Net Memory[99] in module/entity ROM does not have driver. [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:40]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'ROM' (3#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v:23]
+INFO: [Synth 8-6157] synthesizing module 'instr_decoder' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/instr_decoder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'instr_decoder' (4#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/instr_decoder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'GP_registers' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'GP_registers' (5#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:1]
+INFO: [Synth 8-226] default block is never used [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (6#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:1]
+INFO: [Synth 8-6157] synthesizing module 'RAM' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/RAM.v:23]
+	Parameter BIT_INDEX bound to: 11 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'RAM' (7#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/RAM.v:23]
+INFO: [Synth 8-6157] synthesizing module 'PC_adder' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'PC_adder' (8#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'CPU_core' (9#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v:23]
+INFO: [Synth 8-6157] synthesizing module 'digitron_display' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_display.v:25]
+INFO: [Synth 8-6157] synthesizing module 'digitron_sel_decoder' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_sel_decoder.v:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_sel_decoder.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'digitron_sel_decoder' (10#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_sel_decoder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'digitron_seg_decoder' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_seg_decoder.v:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_seg_decoder.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'digitron_seg_decoder' (11#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_seg_decoder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'digitron_display' (12#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_display.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'computer' (13#1) [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v:23]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port clock
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[31]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[30]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[29]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[28]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[27]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[26]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[25]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[24]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[23]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[22]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[21]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[20]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[19]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[18]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[17]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[16]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[15]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[14]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[13]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[12]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[11]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[10]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[9]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[8]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[7]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[6]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[5]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[4]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[3]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[2]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port PC[1]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[31]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[30]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[29]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[28]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[27]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[26]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[25]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[24]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[23]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[22]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[21]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[20]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[19]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[18]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[17]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[16]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[15]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[14]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[13]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[12]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[11]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[10]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[9]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[8]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[7]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[6]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[5]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[4]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[3]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[2]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port imm[1]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[31]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[30]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[29]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[28]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[27]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[26]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[25]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[24]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[23]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[22]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[21]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[20]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[19]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[18]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[17]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[16]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[15]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[14]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[13]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[12]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[11]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[10]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[9]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[8]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[7]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[6]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[5]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[4]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[3]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[2]
+WARNING: [Synth 8-3331] design PC_adder has unconnected port rs1_data[1]
+WARNING: [Synth 8-3331] design RAM has unconnected port addr[1]
+WARNING: [Synth 8-3331] design RAM has unconnected port addr[0]
+WARNING: [Synth 8-3331] design instr_decoder has unconnected port instr[1]
+WARNING: [Synth 8-3331] design instr_decoder has unconnected port instr[0]
+WARNING: [Synth 8-3331] design ROM has unconnected port clock
+WARNING: [Synth 8-3331] design ROM has unconnected port addr[1]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:02:30 ; elapsed = 00:02:33 . Memory (MB): peak = 1327.352 ; gain = 987.648
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:43 ; elapsed = 00:02:48 . Memory (MB): peak = 1327.352 ; gain = 987.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:43 ; elapsed = 00:02:48 . Memory (MB): peak = 1327.352 ; gain = 987.648
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a75tfgg484-2L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc]
+Finished Parsing XDC File [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/computer_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/computer_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 1731.465 ; gain = 0.027
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:03:37 ; elapsed = 00:03:46 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a75tfgg484-2L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:37 ; elapsed = 00:03:46 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:37 ; elapsed = 00:03:47 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk_div_reg" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk_div_reg" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "reg_write_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_write_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "aluB_src_reg" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:15]
+INFO: [Synth 8-5545] ROM "zero_temp0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "Memory_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[31]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[32]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[33]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[34]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[35]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[36]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[37]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[38]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[39]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[40]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[41]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[42]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[43]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[44]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[45]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[46]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[47]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[48]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[49]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[50]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[51]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[52]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[53]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[54]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[55]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[56]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[57]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[58]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[59]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[60]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[61]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[62]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[63]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[64]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[65]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[66]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[67]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[68]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[69]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[70]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[71]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[72]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[73]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[74]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[75]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[76]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[77]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[78]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[79]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[80]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[81]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[82]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[83]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[84]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[85]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[86]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[87]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[88]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[89]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[90]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[91]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[92]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[93]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[94]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[95]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[96]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Memory_reg[97]" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-327] inferring latch for variable 'mem_op_reg_reg' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/instr_decoder.v:103]
+WARNING: [Synth 8-327] inferring latch for variable 'result_temp_reg' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:15]
+WARNING: [Synth 8-327] inferring latch for variable 'zero_temp_reg' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:20]
+WARNING: [Synth 8-327] inferring latch for variable 'less_temp_reg' [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v:19]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:41 ; elapsed = 00:06:54 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |muxpart__4106 |           1|     32760|
+|2     |RAM__GB1      |           1|      3455|
+|3     |RAM__GB2      |           1|      9386|
+|4     |muxpart__4105 |           1|     32760|
+|5     |muxpart__4107 |           1|     32760|
+|6     |muxpart__4108 |           1|     32760|
+|7     |RAM__GB6      |           1|     22167|
+|8     |RAM__GB7      |           1|     20179|
+|9     |RAM__GB8      |           1|     30274|
+|10    |RAM__GB9      |           1|     28283|
+|11    |CPU_core__GC0 |           1|     34701|
+|12    |computer__GC0 |           1|      3793|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 3     
+	   2 Input      2 Bit       Adders := 1     
+	   2 Input      1 Bit       Adders := 2     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                8 Bit    Registers := 4096  
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   9 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 8     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 9217  
+	   4 Input      4 Bit        Muxes := 2     
+	   9 Input      3 Bit        Muxes := 3     
+	   5 Input      3 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 4096  
+	   9 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 11    
+	   8 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module RAM 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 4096  
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 9216  
+	   5 Input      1 Bit        Muxes := 4096  
+Module PC_register 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module instr_decoder 
+Detailed RTL Component Info : 
++---Muxes : 
+	   9 Input     32 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 3     
+	   5 Input      3 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   9 Input      1 Bit        Muxes := 4     
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   8 Input      1 Bit        Muxes := 1     
+Module PC_adder 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module CPU_core 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+Module clock_division 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module clock_division__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module clock_division__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module digitron_sel_decoder 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input      4 Bit        Muxes := 1     
+Module digitron_display 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 180 (col length:80)
+BRAMs: 210 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element clock_division_FAST_inst/cnt_reg was removed.  [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v:34]
+WARNING: [Synth 8-6014] Unused sequential element clock_division_FAST_inst/clk_div_reg_reg was removed.  [C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v:36]
+INFO: [Synth 8-5545] ROM "clock_division_SLOW_inst/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clock_division_SLOW_inst/clk_div_reg" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digitron_display/my_clock/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digitron_display/my_clock/clk_div_reg" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clock_division_SLOW_inst/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clock_division_SLOW_inst/clk_div_reg" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "ALU/zero_temp0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-264] enable of latch \ALU/less_temp_reg  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/less_temp_reg  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/zero_temp_reg  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/zero_temp_reg  is always disabled
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PC_register/PC_reg_reg[0] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:08:18 ; elapsed = 00:08:35 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++--------------+----------------------------+-----------+----------------------+---------------+
+|Module Name   | RTL Object                 | Inference | Size (Depth x Width) | Primitives    | 
++--------------+----------------------------+-----------+----------------------+---------------+
+|CPU_core__GC0 | GP_registers/registers_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++--------------+----------------------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |muxpart__4106 |           1|      8184|
+|2     |RAM__GB1      |           1|      3455|
+|3     |RAM__GB2      |           1|      8974|
+|4     |muxpart__4105 |           1|      8184|
+|5     |muxpart__4107 |           1|      8184|
+|6     |muxpart__4108 |           1|      8184|
+|7     |RAM__GB6      |           1|     15017|
+|8     |RAM__GB7      |           1|     14301|
+|9     |RAM__GB8      |           1|     13498|
+|10    |RAM__GB9      |           1|     13043|
+|11    |CPU_core__GC0 |           1|         6|
+|12    |computer__GC0 |           1|       227|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:08:47 ; elapsed = 00:09:07 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:08:48 ; elapsed = 00:09:07 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |computer__GC0 |           1|       121|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:08:48 ; elapsed = 00:09:08 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:08:50 ; elapsed = 00:09:09 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:08:50 ; elapsed = 00:09:09 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:08:50 ; elapsed = 00:09:09 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:08:50 ; elapsed = 00:09:09 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:08:50 ; elapsed = 00:09:09 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:08:50 ; elapsed = 00:09:09 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     8|
+|3     |LUT1   |     3|
+|4     |LUT2   |     5|
+|5     |LUT3   |     1|
+|6     |LUT4   |     5|
+|7     |LUT5   |     5|
+|8     |FDRE   |    35|
+|9     |IBUF   |     2|
+|10    |OBUF   |    20|
++------+-------+------+
+
+Report Instance Areas: 
++------+-------------------+-----------------+------+
+|      |Instance           |Module           |Cells |
++------+-------------------+-----------------+------+
+|1     |top                |                 |    85|
+|2     |  digitron_display |digitron_display |    61|
+|3     |    my_clock       |clock_division   |    52|
++------+-------------------+-----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:08:50 ; elapsed = 00:09:09 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 28 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:05:25 ; elapsed = 00:08:26 . Memory (MB): peak = 1731.684 ; gain = 987.648
+Synthesis Optimization Complete : Time (s): cpu = 00:08:50 ; elapsed = 00:09:11 . Memory (MB): peak = 1731.684 ; gain = 1391.980
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
 INFO: [Common 17-83] Releasing license: Synthesis
-3 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
-INFO: [Common 17-206] Exiting Vivado at Tue Apr  9 15:59:12 2024...
+162 Infos, 211 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:08:53 ; elapsed = 00:09:15 . Memory (MB): peak = 1731.684 ; gain = 1404.660
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.runs/synth_1/computer.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file computer_utilization_synth.rpt -pb computer_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 1731.684 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon May  6 21:50:46 2024...

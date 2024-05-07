@@ -27,14 +27,27 @@ module computer(
     output [7:0]digitron_out,
     output [3:0]digitron_sel,
     output [3:0]digitronA_out,digitronB_out
-
     );
 
+    wire CLK_FAST,CLK_SLOW;
+
+    parameter DIVCLK_CNT_FAST = 49999;
+    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_FAST)) clock_division_FAST_inst(// 100MHz/50000 = 2000Hz
+      .clk_in(CLK100MHz),
+      .clk_div(CLK_FAST)
+      );
+
+    parameter DIVCLK_CNT_SLOW = 19999999;
+    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_SLOW)) clock_division_SLOW_inst(// 100MHz/20000000 = 5Hz
+      .clk_in(CLK100MHz),
+      .clk_div(CLK_SLOW)
+      );
+
    CPU_core CPU_core (
-    .CLK(CLK100MHz),
+    .CLK(CLK_SLOW),
     .key(key),
     .ina(ina),
-    .inb(inb)
+    .inb(inb),
 );
 
     digitron_display digitron_display(
@@ -47,4 +60,5 @@ module computer(
         .digitron_out(digitron_out),
         .digitron_sel(digitron_sel)
     );
+
 endmodule

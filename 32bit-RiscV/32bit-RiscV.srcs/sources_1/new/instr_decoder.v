@@ -21,7 +21,6 @@
 //Reference:https://nju-projectn.github.io/dlco-lecture-note/exp/11.html
 
 module instr_decoder (
-    input clock,
     input [31:0]instr,
 
     output [31:0]imm, // immediate value
@@ -41,9 +40,9 @@ module instr_decoder (
     );
 
     wire [6:0] opcode;
-    wire [4:0] rd;
-    wire [4:0] rs1;
-    wire [4:0] rs2;
+    //wire [4:0] rd;
+    //wire [4:0] rs1;
+    //wire [4:0] rs2;
     wire [2:0] funct3;
     wire [6:0] funct7;
     wire [31:0] immI, immS, immB, immU, immJ;
@@ -104,7 +103,7 @@ module instr_decoder (
                 mem_op_reg <= 3'bxxx;
                 aluA_src_reg <= 1'b0;
                 aluB_src_reg <= 2'b01;
-                aluop_reg <= 4'b0000;
+                alu_op_reg <= 4'b0000;
             end
             5'b11001: begin
                 imm_reg <= immI;

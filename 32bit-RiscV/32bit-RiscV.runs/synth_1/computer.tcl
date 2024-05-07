@@ -22,35 +22,28 @@ create_project -in_memory -part xc7a75tfgg484-2L
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.cache/wt [current_project]
-set_property parent.project_path C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.cache/wt [current_project]
+set_property parent.project_path C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.cache/ip [current_project]
+set_property ip_output_repo c:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+read_verilog -library xil_defaultlib -sv {
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/RAM.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v
+}
 read_verilog -library xil_defaultlib {
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux16way8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux256way8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux4096way8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/DMux8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux16way8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux256way8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux4096way8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/Mux8bit.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_adder.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/RAM.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_display.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_seg_decoder.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_sel_decoder.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/register.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/register4096.v
-  C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_adder.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_display.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_seg_decoder.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_sel_decoder.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/instr_decoder.v
+  C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -60,8 +53,8 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc
-set_property used_in_implementation false [get_files C:/dachuang/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc]
+read_xdc C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc
+set_property used_in_implementation false [get_files C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/constrs_1/new/const_main.xdc]
 
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]

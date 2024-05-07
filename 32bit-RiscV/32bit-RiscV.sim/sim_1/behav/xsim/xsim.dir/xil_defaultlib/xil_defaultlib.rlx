@@ -1,0 +1,18 @@
+0.6
+2018.2
+Jun 14 2018
+20:41:02
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ALU.v,1715001500,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_adder.v,,ALU,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/CPU_core.v,1715048014,systemVerilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v,,CPU_core,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/GP_registers.v,1712651164,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/RAM.v,,GP_registers,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_adder.v,1715002127,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v,,PC_adder,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/PC_register.v,1711530111,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v,,PC_register,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/RAM.v,1714998356,systemVerilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v,,RAM,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/ROM.v,1715001840,systemVerilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v,,ROM,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/clock_division.v,1711530111,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_display.v,,clock_division,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/computer.v,1715002369,verilog,,,,computer,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_display.v,1711530111,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_seg_decoder.v,,digitron_display,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_seg_decoder.v,1711530111,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_sel_decoder.v,,digitron_seg_decoder,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/digitron_sel_decoder.v,1711530111,verilog,,C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/instr_decoder.v,,digitron_sel_decoder,,,,,,,,
+C:/Users/huyan/Desktop/CPU-ON-FPGA/32bit-RiscV/32bit-RiscV.srcs/sources_1/new/instr_decoder.v,1715001580,verilog,,,,instr_decoder,,,,,,,,

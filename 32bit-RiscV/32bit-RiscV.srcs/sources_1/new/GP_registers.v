@@ -27,7 +27,8 @@ module GP_registers(
     input [4:0]read_regA,
     input [4:0]read_regB,
     output [31:0]A,
-    output [31:0]B
+    output [31:0]B,
+    output [31:0]registers_testbench[31:0]
     );
 
     reg [31:0]registers[31:0];
@@ -40,6 +41,8 @@ module GP_registers(
 
     assign A = registers[read_regA];
     assign B = registers[read_regB];
+
+    assign registers_testbench = registers;
 
     
 endmodule

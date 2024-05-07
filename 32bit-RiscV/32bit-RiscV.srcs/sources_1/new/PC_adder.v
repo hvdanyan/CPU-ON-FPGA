@@ -22,7 +22,7 @@
 
 module PC_adder(
     input clock,
-    input branch,
+    input [2:0]branch,
     input [31:0]PC,
     input [31:0]imm,
     input [31:0]rs1_data,
@@ -32,7 +32,7 @@ module PC_adder(
 
     reg next_PC_reg;
 
-    always @(posedge clock) begin
+    always @(*) begin
         case(branch)
             3'b000: next_PC_reg = PC + 4;
             3'b001: next_PC_reg = PC + imm;

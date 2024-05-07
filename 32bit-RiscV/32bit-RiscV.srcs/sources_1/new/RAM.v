@@ -29,21 +29,16 @@ module RAM #(
     input write_en,
     output [31:0]data_out
      );
-     wire[BIT_INDEX-2:0]addrs;
-      wire [0:4095]writeout;
-       wire [0:4095][7:0] Memory;
-       wire [7:0]data_out0;
-       wire [7:0]data_out1;
-       wire [7:0]data_out2;
-       wire [7:0]data_out3;
+
+    reg [0:4095][7:0] Memory;
+
+    always @(posedge clock) begin
+        if(write_en) begin
+            {Memory[{addr[BIT_INDEX:2],2'b11}],Memory[{addr[BIT_INDEX:2],2'b10}],Memory[{addr[BIT_INDEX:2],2'b01}],Memory[{addr[BIT_INDEX:2],2'b00}]} <= data_in;
+        end
+    end
+
+    assign data_out = {Memory[{addr[BIT_INDEX:2],2'b11}],Memory[{addr[BIT_INDEX:2],2'b10}],Memory[{addr[BIT_INDEX:2],2'b01}],Memory[{addr[BIT_INDEX:2],2'b00}]};
        
-       Mux4096way8bit Mux4096way8bit_inst(write_en, addr, writeout);
-       register4096 register4096_inst(clock, writeout, data_in, Memory);
-        DMux4096way32bit DMux4096way32bit_1(Memory, addr, data_out);
-       /*DMux4096way8bit DMux4096way8bit_0(Memory, addr, data_out0);
-       DMux4096way8bit DMux4096way8bit_1(Memory, addr+2'b000000000001, data_out1);
-       DMux4096way8bit DMux4096way8bit_2(Memory, addr+2'b000000000010, data_out2);
-       DMux4096way8bit DMux4096way8bit_3(Memory, addr+2'b000000000011, data_out3);
-       assign data_out[31:0]={data_out3,data_out2,data_out1,data_out0};*/
 endmodule
 
