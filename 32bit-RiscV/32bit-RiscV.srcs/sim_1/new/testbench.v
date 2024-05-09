@@ -21,33 +21,22 @@
 
 
 module testbench(
-    output [31:0]rg_tb[31:0]
+    output [31:0]rg_tb[31:0],
+    output [31:0]test
     );
     
     reg CLK100MHz;
     reg [8:0]key;
-
-    wire CLK_FAST,CLK_SLOW;
-
-    parameter DIVCLK_CNT_FAST = 49999;
-    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_FAST)) clock_division_FAST_inst(// 100MHz/50000 = 2000Hz
-      .clk_in(CLK100MHz),
-      .clk_div(CLK_FAST)
-      );
-
-    parameter DIVCLK_CNT_SLOW = 19999999;
-    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_SLOW)) clock_division_SLOW_inst(// 100MHz/20000000 = 5Hz
-      .clk_in(CLK100MHz),
-      .clk_div(CLK_SLOW)
-      );
+    reg [3:0]ina,inb;
 
    CPU_core CPU_core (
-    .CLK(CLK_SLOW),
+    .CLK(CLK100MHz),
     .key(key),
     .ina(ina),
     .inb(inb),
-    .rg_tb(rg_tb)
-);
+    .rg_tb(rg_tb),
+    .test(test)
+    );
 
     digitron_display digitron_display(
         .CLK(CLK100MHz),
@@ -64,6 +53,8 @@ module testbench(
     begin
     CLK100MHz = 0;
     key = 9'b111111111;
+    ina = 4'b0000;
+    inb = 4'b0000;
     //#10 PROGRAM =1;
     end
     always

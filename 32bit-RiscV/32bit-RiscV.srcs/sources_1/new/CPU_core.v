@@ -24,7 +24,8 @@ module CPU_core(
     input CLK,
     input [8:0]key,
     input [3:0]ina,inb,
-    output [31:0]rg_tb[31:0]
+    output [31:0]rg_tb[31:0],
+    output [31:0]test
     );
 
     parameter BIT_INDEX = 12 - 1;
@@ -85,7 +86,7 @@ module CPU_core(
 
     GP_registers GP_registers(
         .clock(CLK),
-        .write_reg(rd | {5{reg_write}}),
+        .write_reg(rd & {5{reg_write}}),
         .write_data(write_data),
         .read_regA(rs1),
         .read_regB(rs2),
@@ -134,7 +135,7 @@ module CPU_core(
         .next_PC(new_addr)
     );
 
-
+    assign test = rd & {5{reg_write}};
 
 
 endmodule

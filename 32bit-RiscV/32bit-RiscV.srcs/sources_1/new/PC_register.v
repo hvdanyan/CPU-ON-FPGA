@@ -38,4 +38,9 @@ module PC_register(
     end
 
     assign PC = PC_reg;
+
+    initial
+    begin
+        PC_reg = 0;
+    end
 endmodule

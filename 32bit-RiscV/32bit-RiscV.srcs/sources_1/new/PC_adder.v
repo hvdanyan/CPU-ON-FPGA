@@ -30,7 +30,7 @@ module PC_adder(
     output [31:0]next_PC
     );
 
-    reg next_PC_reg;
+    reg [31:0]next_PC_reg;
 
     always @(*) begin
         case(branch)

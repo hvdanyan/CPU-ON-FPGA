@@ -39,10 +39,14 @@ module GP_registers(
         end
     end
 
-    assign A = registers[read_regA];
-    assign B = registers[read_regB];
+    assign A = read_regA ? registers[read_regA] : 32'h0;
+    assign B = read_regB ? registers[read_regB] : 32'h0;
 
     assign registers_testbench = registers;
 
+    initial
+    begin
+        registers[0] = 32'h0;
+    end
     
 endmodule

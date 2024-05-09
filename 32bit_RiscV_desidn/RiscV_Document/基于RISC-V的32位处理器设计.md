@@ -773,9 +773,9 @@ System Verilog是Verilog的扩展，提供了更多的功能，例如面向对�
 
 - 支持片外内存的访问
 
-## 3.1-CPU流水线设计
+## 3.2-CPU流水线设计
 
-### 3.1.2-译码单元
+### 3.2.2-译码单元
 
 译码单元用于解析指令，将指令的操作码和操作数提取出来，然后根据操作码执行相应的操作。为实现对指令执行单元的控制，需要将指令解析为以下的控制信号：
 
@@ -787,11 +787,11 @@ fig.3.1-译码单元的控制信号
 
 
 
-### 3.1.3-指令执行单元
+### 3.2.3-指令执行单元
 
 
 
-#### 3.1.3.1-ALU算数逻辑单元
+#### 3.2.3.1-ALU算数逻辑单元
 
 根据[1.1.3.1-算数与逻辑指令](#1.1.3.1-算数与逻辑指令)节的内容，ALU本身需要支持加法、减法、移位、逻辑运算等功能。
 
@@ -838,12 +838,12 @@ cd riscv-gnu-toolchain
 mkdir build
 cd build
 ../configure --prefix=/opt/riscv --with-arch=rv32im --with-abi=ilp32
-make -j8
+sudo make -j8
 ```
 
 j8表示使用8个线程进行编译。上面的命令安装了32位的RISC-V编译工具。
 
-如果需要同时安装64位的RISC-V编译工具，可以执行以下命令：
+如果需要同时安装64位的RISC-V编译工具，可以将第4行替换为执行以下命令：
 
 ```shell
 ../configure --prefix=/opt/riscv --enable-multilib
@@ -884,3 +884,4 @@ riscv32-unknown-elf-gcc -c hello.c
 ```shell
 riscv32-unknown-elf-objdump -d hello.o
 ```
+

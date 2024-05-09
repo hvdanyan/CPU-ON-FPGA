@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "36b8709d6daa90f2",
@@ -149,12 +148,13 @@
   },
   "active": "d3873fd9ed8f561d",
   "lastOpenFiles": [
+    "Untitled.md",
+    "基于RISC-V的32位处理器设计.md",
     "基于RISC-V的32位处理器设计-OSCreation0719.md",
     "RV32I-English.png",
     "RV32I-B&R&J&U.png",
     "RV32I-B&R&J&U.png.png",
     "RV32I-R&I&S&U.png",
-    "基于RISC-V的32位处理器设计.md",
     "RV32I-R:I:S:U.png",
     "InstructionSet2.pptx"
   ]

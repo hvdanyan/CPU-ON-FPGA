@@ -1,5 +1,8 @@
 .DS_Store
+._.DS_Store
 *.jou
 *.log
 8bitALU_orig01/8bitALU_orig01.runs/
 8bitALU_orig01/8bitALU_orig01.sim/
+32bit-RiscV/32bit-RiscV.runs/
+32bit-RiscV/32bit-RiscV.sim/
