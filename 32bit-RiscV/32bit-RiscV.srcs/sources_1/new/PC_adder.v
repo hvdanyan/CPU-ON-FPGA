@@ -36,7 +36,7 @@ module PC_adder(
         case(branch)
             3'b000: next_PC_reg = PC + 4;
             3'b001: next_PC_reg = PC + imm;
-            3'b010: next_PC_reg = PC + rs1_data;
+            3'b010: next_PC_reg = rs1_data + imm;
             3'b100: next_PC_reg = zero ? PC + imm : PC + 4;
             3'b101: next_PC_reg = ~zero ? PC + imm : PC + 4;
             3'b110: next_PC_reg = less ? PC + imm : PC + 4;

@@ -29,6 +29,8 @@ module computer(
     output [3:0]digitronA_out,digitronB_out
     );
 
+    parameter BIT_INDEX = 12 - 1;
+
     wire CLK_FAST,CLK_SLOW;
 
     parameter DIVCLK_CNT_FAST = 49999;
@@ -43,21 +45,52 @@ module computer(
       .clk_div(CLK_SLOW)
       );
 
+    wire CLK = CLK_SLOW;
+
+    wire [31:0]rom_data, rom_addr;
+    wire [31:0]ram_out_data, ram_in_data, ram_addr;
+    wire ram_write_en;
+    wire [23:0]data1, data2;
+
+    RAM #(.BIT_INDEX(BIT_INDEX)) RAM(
+        .clock(CLK),
+        .addr(ram_addr[BIT_INDEX:0]),
+        .data_in(ram_in_data),
+        .write_en(ram_write_en),
+        .data_out(ram_out_data),
+        .print_data1(data1),
+        .print_data2(data2)
+    );
+
+    ROM #(.BIT_INDEX(BIT_INDEX)) ROM(
+        .clock(CLK),
+        .addr(rom_addr[BIT_INDEX:0]),
+        .data(rom_data)
+    );
+
 
     wire [31:0]rg_tb[31:0];
-    CPU_core CPU_core (
-        .CLK(CLK_SLOW),
+    wire [31:0]test;
+    CPU_core #(.BIT_INDEX(BIT_INDEX)) CPU_core(
+        .CLK(CLK),
         .key(key),
         .ina(ina),
         .inb(inb),
-        .rg_tb(rg_tb)
+        .rom_data(rom_data),
+        .rom_addr(rom_addr),
+        .ram_out_data(ram_out_data),
+        .ram_write_en(ram_write_en),
+        .ram_in_data(ram_in_data),
+        .ram_addr(ram_addr),
+        .rg_tb(rg_tb),
+        .test(test)
 );
 
     digitron_display digitron_display(
         .CLK(CLK100MHz),
         .switch(ina[0]),
-        .data1(24'b000000000000000000000001),
-        .data2(24'b110000000000000000000000),
+        .data1(data1),
+        .data2(data2),
         .digitronA_out(digitronA_out),
         .digitronB_out(digitronB_out),
         .digitron_out(digitron_out),

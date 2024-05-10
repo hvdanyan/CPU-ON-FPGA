@@ -20,15 +20,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module CPU_core(
+module CPU_core #(
+    parameter BIT_INDEX = 11
+    )(
     input CLK,
     input [8:0]key,
     input [3:0]ina,inb,
+
+    //RAM & ROM
+    input [31:0]rom_data,
+    output [31:0]rom_addr,
+    input [31:0]ram_out_data,
+    output ram_write_en,
+    output [31:0]ram_in_data,
+    output [31:0]ram_addr,
+
+
     output [31:0]rg_tb[31:0],
     output [31:0]test
     );
 
-    parameter BIT_INDEX = 12 - 1;
 
     wire [31:0]PC;
     wire [31:0]new_addr;
@@ -41,13 +52,10 @@ module CPU_core(
         .PC(PC)
     );
 
-    wire [31:0]instruction;
+    //ROM
+    wire [31:0]instruction = rom_data;
+    assign rom_addr = PC;
 
-    ROM #(.BIT_INDEX(BIT_INDEX)) ROM(
-        .clock(CLK),
-        .addr(PC[BIT_INDEX:0]),
-        .data(instruction)
-    );
 
     wire [31:0]imm;
     wire [2:0]ext_op;
@@ -112,17 +120,15 @@ module CPU_core(
         .less(less)
     );
 
-    wire [31:0]mem_data;
-
     assign write_data = mem_to_reg ? mem_data : ALU_result;
 
-    RAM #(.BIT_INDEX(BIT_INDEX)) RAM(
-        .clock(CLK),
-        .addr(ALU_result[BIT_INDEX:0]),
-        .data_in(rs2_data),
-        .write_en(mem_write),
-        .data_out(mem_data)
-    );
+
+    //RAM
+    wire [31:0]mem_data = ram_out_data;
+    assign ram_addr = ALU_result;
+    assign ram_in_data = rs2_data;
+    assign ram_write_en = mem_write;
+
 
     PC_adder PC_adder(
         .clock(CLK),
@@ -135,7 +141,7 @@ module CPU_core(
         .next_PC(new_addr)
     );
 
-    assign test = rd & {5{reg_write}};
+    assign test = rom_addr;
 
 
 endmodule

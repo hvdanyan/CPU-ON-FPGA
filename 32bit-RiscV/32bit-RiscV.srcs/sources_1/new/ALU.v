@@ -13,7 +13,7 @@ module ALU(
     always @(*) begin
         case(ALU_op[2:0])
             3'b000: result_temp = ALU_op[3] ? A - B : A + B;
-            3'b001: result_temp = B << A;
+            3'b001: result_temp = A << B;
             3'b010: begin
                 result_temp <= ALU_op[3] ? (A < B ? 1'b1 : 1'b0) : ($signed(A) < $signed(B) ? 1'b1 : 1'b0);
                 less_temp <= result;

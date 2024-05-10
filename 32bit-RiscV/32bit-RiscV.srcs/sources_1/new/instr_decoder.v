@@ -32,7 +32,7 @@ module instr_decoder (
     output [2:0]mem_op, // Not available at present
     output aluA_src, // 0:rs1, 1:PC
     output [1:0]aluB_src, // 00:rs2, 01:imm, 1x:4
-    output [3:0]alu_op, // 0000:add, 1001:sub, x001:sll, 0010: slti, 1010:sltiu, x011:srcB, x100:xor, 0101:srl, 1101:sra, 1100:or, 1110:and 
+    output [3:0]alu_op, // 0000:add, 1000:sub, x001:sll, 0010: slti, 1010:sltiu, x011:srcB, x100:xor, 0101:srl, 1101:sra, 1100:or, 1110:and 
 
     output [4:0]rd,
     output [4:0]rs1,
@@ -68,7 +68,7 @@ module instr_decoder (
     reg [2:0] mem_op_reg;
     reg aluA_src_reg;
     reg [1:0] aluB_src_reg;
-    reg [2:0] alu_op_reg;
+    reg [3:0] alu_op_reg;
 
     always @(*) begin
         case(opcode[6:2])

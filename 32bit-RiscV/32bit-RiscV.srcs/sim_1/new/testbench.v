@@ -25,21 +25,49 @@ module testbench(
     output [31:0]test
     );
     
-    reg CLK100MHz;
+    reg CLK;
     reg [8:0]key;
     reg [3:0]ina,inb;
+    parameter BIT_INDEX = 12 - 1;
 
-   CPU_core CPU_core (
-    .CLK(CLK100MHz),
-    .key(key),
-    .ina(ina),
-    .inb(inb),
-    .rg_tb(rg_tb),
-    .test(test)
+    wire [31:0]rom_data, rom_addr;
+    wire [31:0]ram_out_data, ram_in_data, ram_addr;
+    wire ram_write_en;
+    wire [23:0]data1, data2;
+
+    RAM #(.BIT_INDEX(BIT_INDEX)) RAM(
+        .clock(CLK),
+        .addr(ram_addr[BIT_INDEX:0]),
+        .data_in(ram_in_data),
+        .write_en(ram_write_en),
+        .data_out(ram_out_data),
+        .print_data1(data1),
+        .print_data2(data2)
     );
 
+    ROM #(.BIT_INDEX(BIT_INDEX)) ROM(
+        .clock(CLK),
+        .addr(rom_addr[BIT_INDEX:0]),
+        .data(rom_data)
+    );
+
+    CPU_core #(.BIT_INDEX(BIT_INDEX)) CPU_core(
+        .CLK(CLK),
+        .key(key),
+        .ina(ina),
+        .inb(inb),
+        .rom_data(rom_data),
+        .rom_addr(rom_addr),
+        .ram_out_data(ram_out_data),
+        .ram_write_en(ram_write_en),
+        .ram_in_data(ram_in_data),
+        .ram_addr(ram_addr),
+        .rg_tb(rg_tb),
+        .test(test)
+);
+
     digitron_display digitron_display(
-        .CLK(CLK100MHz),
+        .CLK(CLK),
         .switch(ina[0]),
         .data1(24'b000000000000000000000001),
         .data2(24'b110000000000000000000000),
@@ -51,7 +79,7 @@ module testbench(
 
     initial
     begin
-    CLK100MHz = 0;
+    CLK = 0;
     key = 9'b111111111;
     ina = 4'b0000;
     inb = 4'b0000;
@@ -59,6 +87,6 @@ module testbench(
     end
     always
     begin
-    #1 CLK100MHz = ~CLK100MHz;
+    #1 CLK = ~CLK;
     end
 endmodule
