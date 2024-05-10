@@ -385,7 +385,18 @@ auipc rd, imm
 
 ##### 1.1.3.1.2-寄存器指令
 
-
+| 指令 | 助记符 | 说明 |
+|---|---|---|
+| add | add | 寄存器加法 |
+| sub | subtract | 寄存器减法 |
+| slt | set less than | 寄存器小于 |
+| sltu | set less than unsigned | 无符号寄存器小于 |
+| sll | shift left logical | 逻辑左移 |
+| srl | shift right logical | 逻辑右移 |
+| sra | shift right arithmetic | 算术右移 |
+| xor | exclusive or | 寄存器异或 |
+| or | or | 寄存器或 |
+| and | and | 寄存器与 |
 
 寄存器指令与立即数指令很相似，只是立即数被替换为了源寄存器2。此外，寄存器指令中有减法指令sub，而立即数指令中没有减法指令。
 
