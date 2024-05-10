@@ -105,7 +105,7 @@ RV32I指令集中的指令主要分为以下几类：
 
 - 算术与逻辑指令（11条立即数指令、10条寄存器指令）
 
-- 控制转移指令（2条无条件跳转指令、7条条件跳转指令）
+- 控制转移指令（2条无条件跳转指令、6条条件跳转指令）
 
 - 加载存储指令（5条加载指令、3条存储指令）
 
@@ -115,7 +115,121 @@ RV32I指令集中的指令主要分为以下几类：
 
 - 环境调用和系统断点指令（2条）
 
-上面总共是47条指令。下面将对这些指令进行详细的介绍。
+上面总共是47条指令。下面将会列出这些指令的总表。也可以参考[指令卡片](https://github.com/jameslzhu/riscv-card)或指令集手册。
+
+[算数与逻辑指令立即数指令](#1.1.3.1.1-立即数指令)：
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| addi | 立即数加法 | rd = rs1 + imm |
+| slti | 立即数小于 | rd = (rs1 < imm) ? 1 : 0 |
+| sltiu | 无符号立即数小于 | rd = (rs1 < imm) ? 1 : 0 |
+| xori | 立即数异或 | rd = rs1 ^ imm |
+| ori | 立即数或 | rd = rs1 \| imm |
+| andi | 立即数与 | rd = rs1 & imm |
+| slli | 逻辑左移 | rd = rs1 << imm |
+| srli | 逻辑右移 | rd = rs1 >> imm |
+| srai | 算术右移 | rd = rs1 >>> imm |
+| lui | 加载高位立即数 | rd = imm << 12 |
+| auipc | 加载高位立即数到pc | rd = pc + (imm << 12) |
+
+[算数与逻辑指令寄存器指令](#1.1.3.1.2-寄存器指令)：
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| add | 寄存器加法 | rd = rs1 + rs2 |
+| sub | 寄存器减法 | rd = rs1 - rs2 |
+| slt | 寄存器小于 | rd = (rs1 < rs2) ? 1 : 0 |
+| sltu | 无符号寄存器小于 | rd = (rs1 < rs2) ? 1 : 0 |
+| xor | 寄存器异或 | rd = rs1 ^ rs2 |
+| or | 寄存器或 | rd = rs1 \| rs2 |
+| and | 寄存器与 | rd = rs1 & rs2 |
+| sll | 逻辑左移 | rd = rs1 << rs2 |
+| srl | 逻辑右移 | rd = rs1 >> rs2 |
+| sra | 算术右移 | rd = rs1 >>> rs2 |
+
+[控制转移指令](#1.1.3.2-控制转移指令):
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| jalr | 间接跳转 | rd = pc + 4; pc = rs1 + imm |
+| jal | 直接跳转 | rd = pc + 4; pc = pc + imm |
+| beq | 相等分支 | pc = (rs1 == rs2) ? pc + imm : pc + 4 |
+| bne | 不等分支 | pc = (rs1 != rs2) ? pc + imm : pc + 4 |
+| blt | 小于分支 | pc = (rs1 < rs2) ? pc + imm : pc + 4 |
+| bge | 大于等于分支 | pc = (rs1 >= rs2) ? pc + imm : pc + 4 |
+| bltu | 无符号小于分支 | pc = (rs1 < rs2) ? pc + imm : pc + 4 |
+| bgeu | 无符号大于等于分支 | pc = (rs1 >= rs2) ? pc + imm : pc + 4 |
+
+[载入指令](#1.1.3.3.1-载入读取指令):
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| lb | 字节载入 | rd = M[rs1 + imm] |
+| lh | 半字载入 | rd = M[rs1 + imm] |
+| lw | 字载入 | rd = M[rs1 + imm] |
+| lbu | 无符号字节载入 | rd = M[rs1 + imm] |
+| lhu | 无符号半字载入 | rd = M[rs1 + imm] |
+
+[存储指令](#1.1.3.3.2-存储指令):
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| sb | 字节存储 | M[rs1 + imm] = rs2 |
+| sh | 半字存储 | M[rs1 + imm] = rs2 |
+| sw | 字存储 | M[rs1 + imm] = rs2 |
+
+[内存同步指令](#1.1.3.4-内存同步指令):
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| fence | 内存屏障 | 无 |
+| fence.i | 指令屏障 | 无 |
+
+[控制与状态寄存器指令](#1.1.3.5-控制与状态寄存器指令):
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| csrrw | 读写CSR寄存器 | rd = CSR[imm]; CSR[imm] = rs1 |
+| csrrs | 读设置CSR寄存器 | rd = CSR[imm]; CSR[imm] = CSR[imm] \| rs1 |
+| csrrc | 读清除CSR寄存器 | rd = CSR[imm]; CSR[imm] = CSR[imm] & ~rs1 |
+| csrrwi | 立即数读写CSR寄存器 | rd = CSR[imm]; CSR[imm] = zimm |
+| csrrsi | 立即数读设置CSR寄存器 | rd = CSR[imm]; CSR[imm] = CSR[imm] \| zimm |
+| csrrci | 立即数读清除CSR寄存器 | rd = CSR[imm]; CSR[imm] = CSR[imm] & ~zimm |
+
+[环境调用和系统断点指令](#1.1.3.6-环境调用和系统断点指令):
+
+| 指令 | 说明 | 描述 |
+|---|---|---|
+| ecall | 环境调用 | 无 |
+| ebreak | 环境断点 | 无 |
+
+除此以外，还有一些伪代码指令，这些指令实际上是由其他指令组合而成的，或者是其他指令的特殊情况。在汇编器中，这些指令可能会出现。
+
+| 指令 | 说明 | 等价指令 | 描述 |
+|---|---|---|---|
+| nop | 空操作 | addi x0, x0, 0 | 无操作 |
+| li | 立即数加载 | addi rd, x0, imm | 将立即数加载到寄存器中 |
+| mv | 寄存器复制 | add rd, x0, rs1 | rd = rs1 |
+| not | 非运算 | xori rd, rs1, -1 | rd = ~rs1 |
+| seqz | 等于零 | sltiu rd, rs1, 0 | rd = (rs1 == 0) ? 1 : 0 |
+| snez | 不等于零 | sltu rd, x0, rs1 | rd = (rs1 != 0) ? 1 : 0 |
+| sltz | 小于零 | slt rd, rs1, x0 |	rd = (rs1 < 0) ? 1 : 0 |
+| sgtz | 大于零 | slt rd, x0, rs1 | rd = (rs1 > 0) ? 1 : 0 |
+| beqz | 等于零跳转 | beq rs1, x0, imm | rd = (rs1 == 0) ? pc + imm : pc + 4 |
+| bnez | 不等于零跳转 | bne rs1, x0, imm | rd = (rs1 != 0) ? pc + imm : pc + 4 |
+| blez | 小于等于零跳转 | ble rs1, x0, imm | rd = (rs1 <= 0) ? pc + imm : pc + 4 |
+| bgez | 大于等于零跳转 | bge rs1, x0, imm | rd = (rs1 >= 0) ? pc + imm : pc + 4 |
+| bltz | 小于零跳转 | blt rs1, x0, imm | rd = (rs1 < 0) ? pc + imm : pc + 4 |
+| bgtz | 大于零跳转 | bgt rs1, x0, imm | rd = (rs1 > 0) ? pc + imm : pc + 4 |
+| bgt | 大于跳转 | blt rs2, rs1, imm | rd = (rs1 > rs2) ? pc + imm : pc + 4 |
+| ble | 小于等于跳转 | bge rs2, rs1, imm | rd = (rs1 <= rs2) ? pc + imm : pc + 4 |
+| bgtu | 无符号大于跳转 | bltu rs2, rs1, imm | rd = (rs1 > rs2) ? pc + imm : pc + 4 |
+| bleu | 无符号小于等于跳转 | bgeu rs2, rs1, imm | rd = (rs1 <= rs2) ? pc + imm : pc + 4 |
+| j | 无条件跳转 | jal x0, imm | pc = pc + imm |
+| jr | 间接跳转 | jalr x0, rs1, 0 | pc = rs1 |
+| ret | 返回 | jalr x0, x1, 0 | pc = x1 |
+
 
 #### 1.1.3.1-算数与逻辑指令
 
@@ -271,18 +385,7 @@ auipc rd, imm
 
 ##### 1.1.3.1.2-寄存器指令
 
-| 指令 | 助记符 | 说明 |
-|---|---|---|
-| add | add | 寄存器加法 |
-| sub | subtract | 寄存器减法 |
-| slt | set less than | 寄存器小于 |
-| sltu | set less than unsigned | 无符号寄存器小于 |
-| sll | shift left logical | 逻辑左移 |
-| srl | shift right logical | 逻辑右移 |
-| sra | shift right arithmetic | 算术右移 |
-| xor | exclusive or | 寄存器异或 |
-| or | or | 寄存器或 |
-| and | and | 寄存器与 |
+
 
 寄存器指令与立即数指令很相似，只是立即数被替换为了源寄存器2。此外，寄存器指令中有减法指令sub，而立即数指令中没有减法指令。
 
@@ -747,15 +850,19 @@ RISC-V的指令集是模块化的，可以根据需要选择不同的扩展指�
 
 特权架构主要依靠CSR寄存器来实现。CSR寄存器是一种特殊的寄存器，用于控制CPU的状态。CSR寄存器的地址是固定的，不同的CSR寄存器有不同的功能，参考[控制状态寄存器指令](#1.1.3.5-控制与状态寄存器指令)部分。
 
-# 2-硬件编程语言Verilog
+# 2-硬件编程语言Verilog与可编程电路FPGA
 
-Verilog是一种硬件描述语言（Hardware Description Language，HDL），用于描述数字电路。
+## 2.1-硬件描述语言Verilog
 
-System Verilog是Verilog的扩展，提供了更多的功能，例如面向对象编程、接口、多线程等。
+我们对FPGA进行编程时所使用的硬件描述语言（Hardware Description Language，HDL）是Verilog。
+
+System Verilog是Verilog的扩展，提供了更多的功能，例如面向对象编程、接口、多线程等。所以有时候我们会用System Verilog来编写代码。
 
 在本项目中，做出以下代码编写规范：
 
 - 变量名和模块名均使用蛇形命名法，即单词之间用下划线分隔。
+
+- 常量以及缩写使用大写，其余情况使用小写。
 
 - begin和end之间的代码缩进一个TAB。begin不单独占一行。
 
@@ -763,7 +870,13 @@ System Verilog是Verilog的扩展，提供了更多的功能，例如面向对�
 
 - 低电平有效的信号，变量名用下划线开头，如_clk。
 
+## 2.2-可编程电路FPGA
+
+FPGA之所以能够成为通用的可编程电路，是因为它的可编程逻辑单元（Programmable Logic Unit，PLU）是由可编程的查找表（Look-Up Table，LUT）构成的。查找表是一种存储器，可以存储逻辑函数。在数字系统课程中我们可以知道，将存储器的输入地址当作逻辑函数的输入，将存储器的输出当作逻辑函数的输出，就可以实现任意的逻辑函数。通常可编程逻辑单元除了包含一个查找表以外，还包含1个或2个寄存器，用于存储查找表的输出、实现时序逻辑的功能。
+
 # 3-RISC-V的FPGA处理器设计
+
+在进行CPU的设计前，首先需要了解计算机的组成原理及CPU的基本结构。请参考[3.0-处理器原理概述](#3.0-处理器原理概述)部分。
 
 在本项目中，使用的FPGA是硬木课堂Xilinx Artix-7 FPGA板，芯片型号是 Xilinx Artix-7 XC7A75T(Vivado代号xc7a75tfgg484-2L)。具有电平开关、LED、键盘、数码管等基本外设。同时还有16位DDR3L共计128MB的片外内存。
 
@@ -777,13 +890,31 @@ System Verilog是Verilog的扩展，提供了更多的功能，例如面向对�
 
 - 支持片外内存的访问
 
+## 3.0-处理器原理概述
+
+处理器运行的第一步是从内存中获取指令。在处理器中，有一个叫做程序计数器的寄存器，即PC（Program Counter）寄存器。PC寄存器通常初始值为0，并会在每个时钟周期自增一次。
+
+处理器会将PC寄存器的值作为地址，从内存中读取指令。读取的指令会被送入算数逻辑单元（ALU，Arithmetic Logic Unit）中进行运算。运算的结果会被写入寄存器中，等待参与下一次运算。随着PC寄存器的不断自增，处理器会不断地重复这一过程。当遇到“if”之类的可能会发生跳转的指令时，处理器就会直接修改PC寄存器的值，从而实现跳转。
+
+指令和数据有可能存储在同一块存储器中，也有可能存储在不同的存储器中。存储在同一块存储器时的架构被称为冯诺依曼架构，存储在不同存储器时的架构被称为哈佛架构。
+
+![[cpu-simple-demo.jpg]]
+
+如上图所示，是非常简易的处理器工作原理图。在这个处理器中，有一个PC寄存器、一个指令存储器（ROM）、一个数据存储器（RAM）、一个ALU、一个通用寄存器组、一个数据分配器。PC寄存器的值作为地址，从指令存储器中读取指令，送入ALU中进行运算，运算结果由数据分配器（DMUX）决定存入到寄存器或者数据存储器中。
+
+## 3.1-单周期的RV32I处理器
+
+处理器的设计是从简单结构开始的。首先设计单周期的RV32I处理器，然后再开始设计流水线的RV32处理器。因为目前网络上已经存在了很多的单周期处理器设计，因此无需从零开始。我们采用的是南京大学计算机科学与技术系的数字逻辑与计算机组成课程实验的单周期处理器设计。资料链接为[https://nju-projectn.github.io/dlco-lecture-note/exp/11.html](https://nju-projectn.github.io/dlco-lecture-note/exp/11.html)。
+
+
+
 ## 3.2-CPU流水线设计
 
 ### 3.2.2-译码单元
 
 译码单元用于解析指令，将指令的操作码和操作数提取出来，然后根据操作码执行相应的操作。为实现对指令执行单元的控制，需要将指令解析为以下的控制信号：
 
-fig.3.1-译码单元的控制信号
+fig.3.2-译码单元的控制信号
 
 | 控制信号 | 宽度 | 说明 |
 |---|---|---|
