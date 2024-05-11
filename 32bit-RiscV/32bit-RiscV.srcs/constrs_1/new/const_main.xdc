@@ -1,6 +1,7 @@
 ##CLK
 set_property PACKAGE_PIN H4 [get_ports CLK100MHz]
 set_property IOSTANDARD LVCMOS33 [get_ports CLK100MHz]
+create_clock -period 10 [get_ports CLK100MHz]
 #set_property PACKAGE_PIN W19 [get_ports CLK50MHz]
 #set_property IOSTANDARD LVCMOS33 [get_ports CLK50MHz]
 #set_property PACKAGE_PIN Y18 [get_ports CLK3Hz]

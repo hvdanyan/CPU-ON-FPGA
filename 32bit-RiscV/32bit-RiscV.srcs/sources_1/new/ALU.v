@@ -15,9 +15,9 @@ module ALU(
             3'b000: result_temp = ALU_op[3] ? A - B : A + B;
             3'b001: result_temp = A << B;
             3'b010: begin
-                result_temp <= ALU_op[3] ? (A < B ? 1'b1 : 1'b0) : ($signed(A) < $signed(B) ? 1'b1 : 1'b0);
-                less_temp <= result;
-                zero_temp <= result == 0 ? 1'b1 : 1'b0;
+                result_temp = ALU_op[3] ? (A < B ? 1'b1 : 1'b0) : ($signed(A) < $signed(B) ? 1'b1 : 1'b0);
+                less_temp = result_temp;
+                zero_temp = A == B ? 1'b1 : 1'b0;
             end
             3'b011: result_temp = B;
             3'b100: result_temp = A ^ B;

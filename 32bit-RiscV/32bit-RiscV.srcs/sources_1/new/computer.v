@@ -98,6 +98,6 @@ module computer(
         .digitron_sel(digitron_sel)
     );
 
-    wire led = {rom_data[13:12],rom_data[5:0]};
+    assign led = {rom_data[13:12],rom_data[5:0]};
 
 endmodule

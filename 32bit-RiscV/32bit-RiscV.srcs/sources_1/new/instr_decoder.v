@@ -100,7 +100,7 @@ module instr_decoder (
                 branch_reg <= 3'b000;
                 mem_to_reg_reg <= 1'b1;
                 mem_write_reg <= 1'b0;
-                mem_op_reg <= 3'bxxx;
+                mem_op_reg <= funct3;
                 aluA_src_reg <= 1'b0;
                 aluB_src_reg <= 2'b01;
                 alu_op_reg <= 4'b0000;
@@ -112,7 +112,7 @@ module instr_decoder (
                 branch_reg <= 3'b010;
                 mem_to_reg_reg <= 1'b0;
                 mem_write_reg <= 1'b0;
-                mem_op_reg <= 3'bxxx;
+                mem_op_reg <= funct3;
                 aluA_src_reg <= 1'b1;
                 aluB_src_reg <= 2'b10;
                 alu_op_reg <= 4'b0000;
@@ -124,7 +124,7 @@ module instr_decoder (
                 branch_reg <= 3'b000;
                 mem_to_reg_reg <= 1'b0;
                 mem_write_reg <= 1'b0;
-                mem_op_reg <= 3'bxxx;
+                mem_op_reg <= funct3;
                 aluA_src_reg <= 1'bx;
                 aluB_src_reg <= 2'b01;
                 alu_op_reg <= 4'b0011;
@@ -136,7 +136,7 @@ module instr_decoder (
                 branch_reg <= 3'b000;
                 mem_to_reg_reg <= 1'b0;
                 mem_write_reg <= 1'b0;
-                mem_op_reg <= 3'bxxx;
+                mem_op_reg <= funct3;
                 aluA_src_reg <= 1'b1;
                 aluB_src_reg <= 2'b01;
                 alu_op_reg <= 4'b0000;
@@ -166,7 +166,7 @@ module instr_decoder (
                 endcase
                 mem_to_reg_reg <= 1'bx;
                 mem_write_reg <= 1'b0;
-                mem_op_reg <= 3'bxxx;
+                mem_op_reg <= funct3;
                 aluA_src_reg <= 1'b0;
                 aluB_src_reg <= 2'b00;
                 if(funct3[2:1] == 2'b11) alu_op_reg <= 4'b1010;
@@ -179,7 +179,7 @@ module instr_decoder (
                 branch_reg <= 3'b001;
                 mem_to_reg_reg <= 1'b0;
                 mem_write_reg <= 1'b0;
-                mem_op_reg <= 3'bxxx;
+                mem_op_reg <= funct3;
                 aluA_src_reg <= 1'b1;
                 aluB_src_reg <= 2'b10;
                 alu_op_reg <= 4'b0000;
@@ -191,7 +191,7 @@ module instr_decoder (
                 branch_reg <= 3'b000;
                 mem_to_reg_reg <= 1'b0;
                 mem_write_reg <= 1'b0;
-                mem_op_reg <= 3'bxxx;
+                mem_op_reg <= funct3;
                 aluA_src_reg <= 1'b0;
                 aluB_src_reg <= 2'b00;
                 case(funct3)
