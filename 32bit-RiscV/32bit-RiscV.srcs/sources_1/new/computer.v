@@ -26,7 +26,8 @@ module computer(
     input [3:0]ina,inb,
     output [7:0]digitron_out,
     output [3:0]digitron_sel,
-    output [3:0]digitronA_out,digitronB_out
+    output [3:0]digitronA_out,digitronB_out,
+    output [7:0]led
     );
 
     parameter BIT_INDEX = 12 - 1;
@@ -96,5 +97,7 @@ module computer(
         .digitron_out(digitron_out),
         .digitron_sel(digitron_sel)
     );
+
+    wire led = {rom_data[13:12],rom_data[5:0]};
 
 endmodule
