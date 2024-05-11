@@ -1052,7 +1052,7 @@ int main() {
 		fib[i] = fib[i-1] + fib[i-2];
 	}
 	int result = fib[19];
-	return 0;
+	return result;
 }
 ```
 
@@ -1075,54 +1075,58 @@ riscv32-unknown-elf-objdump -d fib.o > fib.asm
 ```
 
 ```
-fib.o:     file format elf32-littleriscv
+fib.o:     file format elf32-littleriscv
+
 
 Disassembly of section .text:
-00000000 <main>:
-   0: f9010113          addi sp,sp,-112
-   4: 06812623          sw s0,108(sp)
-   8: 07010413          addi s0,sp,112
-   c: f8042c23          sw zero,-104(s0)
-  10: 00100793          li a5,1
-  14: f8f42e23          sw a5,-100(s0)
-  18: 00200793          li a5,2
-  1c: fef42623          sw a5,-20(s0)
-  20: 0580006f          j 78 <.L2>
 
-00000024 <.L3>:
-  24: fec42783          lw a5,-20(s0)
-  28: fff78793          addi a5,a5,-1
-  2c: 00279793          slli a5,a5,0x2
-  30: ff078793          addi a5,a5,-16
-  34: 008787b3          add a5,a5,s0
-  38: fa87a703          lw a4,-88(a5)
-  3c: fec42783          lw a5,-20(s0)
-  40: ffe78793          addi a5,a5,-2
-  44: 00279793          slli a5,a5,0x2
-  48: ff078793          addi a5,a5,-16
-  4c: 008787b3          add a5,a5,s0
-  50: fa87a783          lw a5,-88(a5)
-  54: 00f70733          add a4,a4,a5
-  58: fec42783          lw a5,-20(s0)
-  5c: 00279793          slli a5,a5,0x2
-  60: ff078793          addi a5,a5,-16
-  64: 008787b3          add a5,a5,s0
-  68: fae7a423          sw a4,-88(a5)
-  6c: fec42783          lw a5,-20(s0)
-  70: 00178793          addi a5,a5,1
-  74: fef42623          sw a5,-20(s0)
-  
-00000078 <.L2>:
-  78: fec42703          lw a4,-20(s0)
-  7c: 01400793          li a5,19
-  80: fae7d2e3          bge a5,a4,24 <.L3>
-  84: fe442783          lw a5,-28(s0)
-  88: fef42423          sw a5,-24(s0)
-  8c: 00000793          li a5,0
-  90: 00078513          mv a0,a5
-  94: 06c12403          lw s0,108(sp)
-  98: 07010113          addi sp,sp,112
-  9c: 00008067          ret
+00000000 <main>:
+   0:	f9010113          	addi	sp,sp,-112
+   4:	06812623          	sw	s0,108(sp)
+   8:	07010413          	addi	s0,sp,112
+   c:	00100793          	li	a5,1
+  10:	f8f42c23          	sw	a5,-104(s0)
+  14:	00100793          	li	a5,1
+  18:	f8f42e23          	sw	a5,-100(s0)
+  1c:	00200793          	li	a5,2
+  20:	fef42623          	sw	a5,-20(s0)
+  24:	0580006f          	j	7c <.L2>
+
+00000028 <.L3>:
+  28:	fec42783          	lw	a5,-20(s0)
+  2c:	fff78793          	addi	a5,a5,-1
+  30:	00279793          	slli	a5,a5,0x2
+  34:	ff078793          	addi	a5,a5,-16
+  38:	008787b3          	add	a5,a5,s0
+  3c:	fa87a703          	lw	a4,-88(a5)
+  40:	fec42783          	lw	a5,-20(s0)
+  44:	ffe78793          	addi	a5,a5,-2
+  48:	00279793          	slli	a5,a5,0x2
+  4c:	ff078793          	addi	a5,a5,-16
+  50:	008787b3          	add	a5,a5,s0
+  54:	fa87a783          	lw	a5,-88(a5)
+  58:	00f70733          	add	a4,a4,a5
+  5c:	fec42783          	lw	a5,-20(s0)
+  60:	00279793          	slli	a5,a5,0x2
+  64:	ff078793          	addi	a5,a5,-16
+  68:	008787b3          	add	a5,a5,s0
+  6c:	fae7a423          	sw	a4,-88(a5)
+  70:	fec42783          	lw	a5,-20(s0)
+  74:	00178793          	addi	a5,a5,1
+  78:	fef42623          	sw	a5,-20(s0)
+
+0000007c <.L2>:
+  7c:	fec42703          	lw	a4,-20(s0)
+  80:	01300793          	li	a5,19
+  84:	fae7d2e3          	bge	a5,a4,28 <.L3>
+  88:	fe442783          	lw	a5,-28(s0)
+  8c:	fef42423          	sw	a5,-24(s0)
+  90:	fe842783          	lw	a5,-24(s0)
+  94:	00078513          	mv	a0,a5
+  98:	06c12403          	lw	s0,108(sp)
+  9c:	07010113          	addi	sp,sp,112
+  a0:	00008067          	ret
+
 ```
 
 读者需要对汇编代码具有初步的认识。在此略作分析：
@@ -1133,7 +1137,7 @@ Disassembly of section .text:
 
 我们知道，在RISC-V中，并没有直接直接把立即数填入内存中的操作。所以填入立即数首先是向一个寄存器填入数据，然后存入内存。因此我们看到在接下来的操作中，分别让-104(s0)=1、-100(s0)=1、-20(s0)=2。
 
-随后无条件跳转到L2。可以看到`lw a4,-20(s0)`将-20(s0)的值加载到了a4寄存器，`li a5,19`将19加载到了a5，然后`bge a5,a4,24 <.L3>`比较a5和a4的大小，当a5比a4大的时候，跳转到L3。从这里可以看出来了，-20(s0)所代表的就是c语言中的变量`i`。
+随后无条件跳转到L2。可以看到`lw a4,-20(s0)`将-20(s0)的值加载到了a4寄存器，`li a5,19`将19加载到了a5，然后`bge a5,a4,28 <.L3>`比较a5和a4的大小，当a5比a4大的时候，跳转到L3。从这里可以看出来了，-20(s0)所代表的就是c语言中的变量`i`。
 
 可见，标签L2和L3之间的内容是循环体内的指令（我们就不分析了）。当-20(s0)=20时，跳出for循环。
 
@@ -1158,3 +1162,13 @@ python3 asm2rom.py < hello.asm
 ```shell
 python3 asm2rom.py < hello.asm > hello_rom.v
 ```
+
+我们直接把它作为ROM.v模块来使用，即可运行。在程序运行结束后，函数的return值将会显示在数码管上。
+
+`/tools`文件夹中，还有一个`c2rom.sh`脚本，用于将C语言文件转换为ROM的Verilog代码。使用方法如下：
+
+```shell
+source ./c2rom.sh hello.c
+```
+
+不需要使用管道符号，即可一键生成`hello.o``hello.asm`和`ROM.v`。
