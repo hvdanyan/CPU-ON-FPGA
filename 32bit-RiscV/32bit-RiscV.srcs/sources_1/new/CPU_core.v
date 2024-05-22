@@ -27,13 +27,13 @@ module CPU_core #(
     input [8:0]key,
     input [3:0]ina,inb,
 
-    //RAM & ROM
-    input [31:0]rom_data,
-    output [31:0]rom_addr,
-    input [31:0]ram_out_data,
-    output ram_write_en,
-    output [31:0]ram_in_data,
-    output [31:0]ram_addr,
+    //cache_data & cache_instruction
+    input [31:0]instr_data,
+    output [31:0]instr_addr,
+    input [31:0]data_out_data,
+    output data_write_en,
+    output [31:0]data_in_data,
+    output [31:0]data_addr,
 
 
     output [31:0]rg_tb[31:0],
@@ -52,9 +52,9 @@ module CPU_core #(
         .PC(PC)
     );
 
-    //ROM
-    wire [31:0]instruction = rom_data;
-    assign rom_addr = PC;
+    //ROM / cache_instr
+    wire [31:0]instruction = instr_data;
+    assign instr_addr = PC;
 
 
     wire [31:0]imm;
@@ -123,11 +123,11 @@ module CPU_core #(
     assign write_data = mem_to_reg ? mem_data : ALU_result;
 
 
-    //RAM
-    wire [31:0]mem_data = ram_out_data;
-    assign ram_addr = ALU_result;
-    assign ram_in_data = rs2_data;
-    assign ram_write_en = mem_write;
+    //RAM / instr_data
+    wire [31:0]mem_data = data_out_data;
+    assign data_addr = ALU_result;
+    assign data_in_data = rs2_data;
+    assign data_write_en = mem_write;
 
 
     PC_adder PC_adder(
@@ -141,7 +141,7 @@ module CPU_core #(
         .next_PC(new_addr)
     );
 
-    assign test = rom_addr;
+    assign test = instr_addr;
 
 
 endmodule

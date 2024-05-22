@@ -10,7 +10,7 @@ OFFSET = 9 #The offset of the first instruction in the ROM
 
 header = """`timescale 1ns / 1ps
 
-module ROM #(
+module program #(
     parameter BIT_INDEX = 11
     )(
     input clock,

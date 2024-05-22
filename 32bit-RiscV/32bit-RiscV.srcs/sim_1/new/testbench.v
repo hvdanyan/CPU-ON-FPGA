@@ -35,7 +35,7 @@ module testbench(
     wire ram_write_en;
     wire [23:0]data1, data2;
 
-    RAM #(.BIT_INDEX(BIT_INDEX)) RAM(
+    cache_data #(.BIT_INDEX(BIT_INDEX)) RAM(
         .clock(CLK),
         .addr(ram_addr[BIT_INDEX:0]),
         .data_in(ram_in_data),
@@ -45,7 +45,7 @@ module testbench(
         .print_data2(data2)
     );
 
-    ROM #(.BIT_INDEX(BIT_INDEX)) ROM(
+    cache_instr #(.BIT_INDEX(BIT_INDEX)) ROM(
         .clock(CLK),
         .addr(rom_addr[BIT_INDEX:0]),
         .data(rom_data)
@@ -56,12 +56,12 @@ module testbench(
         .key(key),
         .ina(ina),
         .inb(inb),
-        .rom_data(rom_data),
-        .rom_addr(rom_addr),
-        .ram_out_data(ram_out_data),
-        .ram_write_en(ram_write_en),
-        .ram_in_data(ram_in_data),
-        .ram_addr(ram_addr),
+        .instr_data(rom_data),
+        .instr_addr(rom_addr),
+        .data_out_data(ram_out_data),
+        .data_write_en(ram_write_en),
+        .data_in_data(ram_in_data),
+        .data_addr(ram_addr),
         .rg_tb(rg_tb),
         .test(test)
 );

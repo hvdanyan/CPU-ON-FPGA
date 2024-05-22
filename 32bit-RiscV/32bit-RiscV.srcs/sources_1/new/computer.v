@@ -48,25 +48,25 @@ module computer(
 
     wire CLK = CLK_SLOW;
 
-    wire [31:0]rom_data, rom_addr;
-    wire [31:0]ram_out_data, ram_in_data, ram_addr;
-    wire ram_write_en;
+    wire [31:0]instr_data, instr_addr;
+    wire [31:0]data_out_data, data_in_data, data_addr;
+    wire data_write_en;
     wire [23:0]data1, data2;
 
-    RAM #(.BIT_INDEX(BIT_INDEX)) RAM(
+    cache_data #(.BIT_INDEX(BIT_INDEX)) cache_data(
         .clock(CLK),
-        .addr(ram_addr[BIT_INDEX:0]),
-        .data_in(ram_in_data),
-        .write_en(ram_write_en),
-        .data_out(ram_out_data),
+        .addr(data_addr[BIT_INDEX:0]),
+        .data_in(data_in_data),
+        .write_en(data_write_en),
+        .data_out(data_out_data),
         .print_data1(data1),
         .print_data2(data2)
     );
 
-    ROM #(.BIT_INDEX(BIT_INDEX)) ROM(
+    cache_instr #(.BIT_INDEX(BIT_INDEX)) cache_instr(
         .clock(CLK),
-        .addr(rom_addr[BIT_INDEX:0]),
-        .data(rom_data)
+        .addr(instr_addr[BIT_INDEX:0]),
+        .data(instr_data)
     );
 
 
@@ -77,12 +77,12 @@ module computer(
         .key(key),
         .ina(ina),
         .inb(inb),
-        .rom_data(rom_data),
-        .rom_addr(rom_addr),
-        .ram_out_data(ram_out_data),
-        .ram_write_en(ram_write_en),
-        .ram_in_data(ram_in_data),
-        .ram_addr(ram_addr),
+        .instr_data(instr_data),
+        .instr_addr(instr_addr),
+        .data_out_data(data_out_data),
+        .data_write_en(data_write_en),
+        .data_in_data(data_in_data),
+        .data_addr(data_addr),
         .rg_tb(rg_tb),
         .test(test)
 );
@@ -98,6 +98,6 @@ module computer(
         .digitron_sel(digitron_sel)
     );
 
-    assign led = {rom_data[13:12],rom_data[5:0]};
+    assign led = {instr_data[13:12],instr_data[5:0]};
 
 endmodule
