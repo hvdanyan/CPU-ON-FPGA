@@ -3,7 +3,7 @@
     .global _start
 
 _start:
-    li	sp,-1
+    li	sp,-257
     jal ra,main
     lui	t0,0x1
     addi	t0,t0,-4
