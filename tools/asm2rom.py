@@ -2,11 +2,14 @@
 Designed by Hu Yan @ 2024/5/10, in Nanjing University.
 
 This script is used to convert the output of riscv32-unknown-elf-objdump to a ROM module in Verilog.
+
+Update: 2024/7/28
+We redesign the script, initializing the ROM.v with startup.S.
 """
 
 import sys
 
-OFFSET = 9 #The offset of the first instruction in the ROM
+OFFSET = 0 #The offset of the first instruction in the ROM
 
 header = """`timescale 1ns / 1ps
 
@@ -19,16 +22,11 @@ module program #(
     );
 
     wire [31:0]Memory[0:1023];
+
+    assign Memory[0] = 32'h00000000;
+    assign Memory[1] = 32'h00000000;
+    assign Memory[2] = 32'h00000000;
     
-    assign Memory[0] = 32'h0;
-    assign Memory[1] = 32'h0;
-    assign Memory[2] = 32'h0;
-    assign Memory[3] = 32'hFFF00113; //li	sp,-1
-    assign Memory[4] = 32'h14000ef;//jal ra,0x14
-    assign Memory[5] = 32'h000012b7; //lui	t0,0x1
-    assign Memory[6] = 32'hffc28293; //addi	t0,t0,-4
-    assign Memory[7] = 32'h00a2a023; //sw   a0,0(t0) 将a0写入到0xffc的位置
-    assign Memory[8] = 32'h6f; //halt
 """
 
 footer = """
@@ -47,9 +45,13 @@ def process_line(line):
     if len(parts) == 3:
         annotation = parts[2]
     elif len(parts) == 4:
-        annotation = f"{parts[2]} {parts[3]}"
+        annotation = f"{parts[0]} {parts[2]} {parts[3]}"
+    elif len(parts) == 5:
+        annotation = f"{parts[0]} {parts[2]} {parts[3]} {parts[4]}"
+    elif len(parts) == 6:
+        annotation = f"{parts[0]} {parts[2]} {parts[3]} {parts[4]} {parts[5]}"
     else:
-        annotation = f"{parts[2]} {parts[3]} {parts[4]}"
+        annotation = f"{parts[0]} {parts[2]} {parts[3]} {parts[4]} {parts[5]} {parts[6]}"
         
 
     return Num,instruction,annotation
