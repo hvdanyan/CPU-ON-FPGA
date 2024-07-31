@@ -46,7 +46,12 @@ module GP_registers(
 
     initial
     begin
+        //for (int i = 0 ; i<32; i = i+1)begin
+        //registers[i] = 32'h0;
+        //end
         registers[0] = 32'h0;
+        registers[1] = 32'h0;
+        registers[8] = 32'h0;
     end
     
 endmodule

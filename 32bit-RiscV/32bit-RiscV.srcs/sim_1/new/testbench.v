@@ -25,34 +25,46 @@ module testbench(
     output [31:0]test
     );
     
-    reg CLK;
+    reg CLK,CLK_SLOW;
     reg [8:0]key;
     reg [3:0]ina,inb;
+    reg _reset;
     parameter BIT_INDEX = 12 - 1;
 
     wire [31:0]rom_data, rom_addr;
     wire [31:0]ram_out_data, ram_in_data, ram_addr;
-    wire ram_write_en;
+    wire data_hit,ram_write_en;
     wire [23:0]data1, data2;
+    wire tx;
+
+    wire stdin_wr_en,stdin_wr_ack;
+    wire [7:0]stdin_data;
 
     cache_data #(.BIT_INDEX(BIT_INDEX)) RAM(
-        .clock(CLK),
+        .clock(CLK_SLOW),
+        ._reset(_reset),
         .addr(ram_addr[BIT_INDEX:0]),
         .data_in(ram_in_data),
         .write_en(ram_write_en),
+        .data_hit(data_hit),
         .data_out(ram_out_data),
         .print_data1(data1),
-        .print_data2(data2)
+        .print_data2(data2),
+
+        
+        .stdin_wr_ack(stdin_wr_ack),
+        .stdin_wr_en(stdin_wr_en),
+        .stdin_data(stdin_data)
     );
 
     cache_instr #(.BIT_INDEX(BIT_INDEX)) ROM(
-        .clock(CLK),
+        .clock(CLK_SLOW),
         .addr(rom_addr[BIT_INDEX:0]),
         .data(rom_data)
     );
 
     CPU_core #(.BIT_INDEX(BIT_INDEX)) CPU_core(
-        .CLK(CLK),
+        .CLK(CLK_SLOW),
         .key(key),
         .ina(ina),
         .inb(inb),
@@ -68,7 +80,7 @@ module testbench(
 
     digitron_display digitron_display(
         .CLK(CLK),
-        .switch(ina[0]),
+        .switch(_reset),
         .data1(24'b000000000000000000000001),
         .data2(24'b110000000000000000000000),
         .digitronA_out(digitronA_out),
@@ -77,16 +89,33 @@ module testbench(
         .digitron_sel(digitron_sel)
     );
 
+    serial_uart serial_uart_inst(
+        .wr_clk(CLK_SLOW),
+        .rd_clk(CLK),
+        .rst(_reset),//随便取的复位键，低电平有效
+        .din(stdin_data),
+        .tx(tx),
+        .stdin_wr_en(stdin_wr_en),
+        .stdin_wr_ack(stdin_wr_ack)
+    );
+
     initial
     begin
     CLK = 0;
+    CLK_SLOW = 0;
     key = 9'b111111111;
     ina = 4'b0000;
     inb = 4'b0000;
-    //#10 PROGRAM =1;
+    _reset = 1;
+    #2 _reset = 0;
+    #10 _reset =1;
     end
     always
     begin
-    #1 CLK = ~CLK;
+        #1 CLK = ~CLK;
+    end
+    always
+    begin
+        #2 CLK_SLOW = ~CLK_SLOW;
     end
 endmodule

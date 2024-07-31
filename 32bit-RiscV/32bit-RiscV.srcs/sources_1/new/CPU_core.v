@@ -124,9 +124,49 @@ module CPU_core #(
 
 
     //RAM / instr_data
-    wire [31:0]mem_data = data_out_data;
+    //lb/lh/lw/lbu/lhu
+    //sb/sh/sw
+    wire [31:0]mem_data;
+    reg [31:0]mem_data_reg;
+    reg [31:0]data_in_data_reg;
+    
+    always @(*)begin
+        case(mem_op)
+            3'b000:begin
+                mem_data_reg = {{24{data_out_data[7]}},data_out_data[7:0]};
+            end
+            3'b001:begin
+                mem_data_reg =  {{16{data_out_data[15]}},data_out_data[15:0]};
+            end
+            3'b100:begin
+                mem_data_reg =  {24'b0,data_out_data[7:0]};
+            end
+            3'b101:begin
+                mem_data_reg =  {16'b0,data_out_data[15:0]};
+            end
+            default:begin
+                mem_data_reg = data_out_data;
+            end
+        endcase
+    end
+
+    always @(*)begin
+        case(mem_op)
+            3'b000:begin
+                data_in_data_reg = {24'b0,rs2_data[7:0]};
+            end
+            3'b001:begin
+                data_in_data_reg = {16'b0,rs2_data[15:0]};
+            end
+            default:begin
+                data_in_data_reg = rs2_data;
+            end
+        endcase
+    end
+
+    assign mem_data = mem_data_reg;
     assign data_addr = ALU_result;
-    assign data_in_data = rs2_data;
+    assign data_in_data = data_in_data_reg;
     assign data_write_en = mem_write;
 
 

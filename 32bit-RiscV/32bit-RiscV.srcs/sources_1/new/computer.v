@@ -27,15 +27,16 @@ module computer(
     output [7:0]digitron_out,
     output [3:0]digitron_sel,
     output [3:0]digitronA_out,digitronB_out,
-    output [7:0]led
+    output [7:0]led,
+    output tx
     );
 
     parameter BIT_INDEX = 12 - 1;
 
     wire CLK_FAST,CLK_SLOW;
 
-    parameter DIVCLK_CNT_FAST = 49999;
-    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_FAST)) clock_division_FAST_inst(// 100MHz/50000 = 2000Hz
+    parameter DIVCLK_CNT_FAST = 99;//异步FIFO中控制输入频率
+    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_FAST)) clock_division_FAST_inst(// 100MHz/100 = 1MHz
       .clk_in(CLK100MHz),
       .clk_div(CLK_FAST)
       );
@@ -46,21 +47,30 @@ module computer(
       .clk_div(CLK_SLOW)
       );
 
-    wire CLK = CLK_SLOW;
-
+    wire CLK = CLK_FAST;
+    wire _reset;
     wire [31:0]instr_data, instr_addr;
     wire [31:0]data_out_data, data_in_data, data_addr;
-    wire data_write_en;
+    wire data_hit,data_write_en;
     wire [23:0]data1, data2;
+
+    wire stdin_wr_en,stdin_wr_ack;
+    wire [7:0]stdin_data;
 
     cache_data #(.BIT_INDEX(BIT_INDEX)) cache_data(
         .clock(CLK),
+        ._reset(_reset),
         .addr(data_addr[BIT_INDEX:0]),
         .data_in(data_in_data),
         .write_en(data_write_en),
+        .data_hit(data_hit),
         .data_out(data_out_data),
         .print_data1(data1),
-        .print_data2(data2)
+        .print_data2(data2),
+
+        .stdin_wr_ack(stdin_wr_ack),
+        .stdin_wr_en(stdin_wr_en),
+        .stdin_data(stdin_data)
     );
 
     cache_instr #(.BIT_INDEX(BIT_INDEX)) cache_instr(
@@ -99,5 +109,15 @@ module computer(
     );
 
     assign led = {instr_data[13:12],instr_data[5:0]};
+
+    serial_uart serial_uart_inst(
+        .wr_clk(CLK),
+        .rd_clk(CLK100MHz),
+        .rst(key[0]),//随便取的复位键，低电平有效
+        .din(stdin_data),
+        .tx(tx),
+        .stdin_wr_en(stdin_wr_en),
+        .stdin_wr_ack(stdin_wr_ack)
+    );
 
 endmodule

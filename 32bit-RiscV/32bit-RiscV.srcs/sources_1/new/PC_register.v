@@ -29,8 +29,8 @@ module PC_register(
 
     reg [31:0]PC_reg;
 
-    always @(posedge clock) begin
-        if (_reset == 0) begin
+    always @(posedge clock or negedge _reset) begin
+        if (_reset == 32'b0) begin
             PC_reg <= 0;
         end
         else
