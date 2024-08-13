@@ -29,6 +29,7 @@ module testbench(
     reg [8:0]key;
     reg [3:0]ina,inb;
     reg _reset;
+    reg rx;
     parameter BIT_INDEX = 12 - 1;
 
     wire [31:0]rom_data, rom_addr;
@@ -37,8 +38,9 @@ module testbench(
     wire [23:0]data1, data2;
     wire tx;
 
-    wire stdin_wr_en,stdin_wr_ack;
     wire [7:0]stdin_data;
+    wire stdout_wr_en,stdout_wr_ack;
+    wire [7:0]stdout_data;
 
     cache_data #(.BIT_INDEX(BIT_INDEX)) RAM(
         .clock(CLK_SLOW),
@@ -51,10 +53,13 @@ module testbench(
         .print_data1(data1),
         .print_data2(data2),
 
+        .stdin_rd_available(stdin_rd_available),
+        .stdin_rd_request(stdin_rd_request),
+        .stdin_data(stdin_data),
         
-        .stdin_wr_ack(stdin_wr_ack),
-        .stdin_wr_en(stdin_wr_en),
-        .stdin_data(stdin_data)
+        .stdout_wr_ack(stdout_wr_ack),
+        .stdout_wr_en(stdout_wr_en),
+        .stdout_data(stdout_data)
     );
 
     cache_instr #(.BIT_INDEX(BIT_INDEX)) ROM(
@@ -90,13 +95,19 @@ module testbench(
     );
 
     serial_uart serial_uart_inst(
-        .wr_clk(CLK_SLOW),
-        .rd_clk(CLK),
+        .cpu_clk(CLK_SLOW),
+        .seri_clk(CLK),
         .rst(_reset),//随便取的复位键，低电平有效
-        .din(stdin_data),
+
+        .rx(rx),
+        .stdin_data(stdin_data),
+        .stdin_rd_available(stdin_rd_available),
+        .stdin_rd_request(stdin_rd_request),
+
+        .stdout_data(stdout_data),
         .tx(tx),
-        .stdin_wr_en(stdin_wr_en),
-        .stdin_wr_ack(stdin_wr_ack)
+        .stdout_wr_en(stdout_wr_en),
+        .stdout_wr_ack(stdout_wr_ack)
     );
 
     initial
@@ -107,8 +118,11 @@ module testbench(
     ina = 4'b0000;
     inb = 4'b0000;
     _reset = 1;
+    rx = 1;
     #2 _reset = 0;
     #10 _reset =1;
+    #20416 rx=0;
+    #25624 rx=1;
     end
     always
     begin

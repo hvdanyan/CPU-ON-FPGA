@@ -126,7 +126,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {digitronB_out[3]}]
 
 
 #USB UART串口
-#set_property PACKAGE_PIN Y21 [get_ports rx]
+set_property PACKAGE_PIN Y21 [get_ports rx]
 set_property PACKAGE_PIN Y22 [get_ports tx]
-#set_property IOSTANDARD LVCMOS33 [get_ports rx]
+set_property IOSTANDARD LVCMOS33 [get_ports rx]
 set_property IOSTANDARD LVCMOS33 [get_ports tx]

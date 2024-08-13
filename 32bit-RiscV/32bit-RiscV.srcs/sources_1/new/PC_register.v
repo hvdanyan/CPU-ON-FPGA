@@ -23,7 +23,9 @@
 module PC_register(
     input clock,
     input _reset,
-    input [31:0]new_addr,
+    input [31:0]predict_PC,
+    input [31:0]new_real_PC,//差2个时钟周期
+    input predict_right,
     output [31:0]PC
     );
 
@@ -33,8 +35,12 @@ module PC_register(
         if (_reset == 32'b0) begin
             PC_reg <= 0;
         end
-        else
-        PC_reg <= new_addr;
+        else if(predict_right)begin
+            PC_reg <= predict_PC;
+        end
+        else begin
+            PC_reg <= new_real_PC;
+        end
     end
 
     assign PC = PC_reg;

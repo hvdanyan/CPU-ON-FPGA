@@ -18,7 +18,6 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-//待办：脏位清零。
 
 module cache_data #(
     parameter BIT_INDEX = 12 - 1
@@ -34,10 +33,15 @@ module cache_data #(
     output [23:0]print_data2,
 
     //为了串口开发的新端口：
-    input stdin_wr_ack,
-    output stdin_wr_en,
+    input stdin_rd_available,
+    output stdin_rd_request,
 
-    output [7:0]stdin_data
+    input [7:0]stdin_data,
+
+    input stdout_wr_ack,
+    output stdout_wr_en,
+
+    output [7:0]stdout_data
     );
 
     //reg [7:0]Memory[0:4095];// Another syntax is [0:4095][7:0]Memory
@@ -94,11 +98,15 @@ module cache_data #(
 
 
 
-    //串口模块的代码/自定义内存空间的写入：
+    //串口输出模块的代码/串口输入模块的代码/自定义内存空间的写入：
 
-    always @(negedge clock or posedge stdin_wr_ack)begin //当接收到fifo发回来的写入成功的信号时，清零标记位
-        if(stdin_wr_ack)begin
+    always @(negedge clock or posedge stdout_wr_ack or posedge stdin_rd_available)begin //当接收到fifo发回来的写入成功的信号时，清零标记位
+        if(stdout_wr_ack)begin
                 Memory_addon[8'hfb][7] <= 0;
+            end
+        else if(stdin_rd_available)begin
+                Memory_addon[8'hf4] <= stdin_data;
+                Memory_addon[8'hf7][7] <= 1;
             end
         else if(addr[BIT_INDEX:8] == 4'hf)begin
             if(write_en)begin
@@ -107,9 +115,12 @@ module cache_data #(
         end
     end
 
-    //串口交互
-    assign stdin_data = Memory_addon[8'hf8];
-    assign stdin_wr_en = Memory_addon[8'hfb][7];
+    //串口输入交互
+    assign stdin_rd_request = ~Memory_addon[8'hf7][7];
+
+    //串口输出交互
+    assign stdout_data = Memory_addon[8'hf8];
+    assign stdout_wr_en = Memory_addon[8'hfb][7];
     
     initial
     begin

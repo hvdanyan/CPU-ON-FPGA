@@ -955,6 +955,8 @@ CPU核心主要接收时钟信号、与内存交换数据。详细的设计请�
 
 我们约定，在地址0xff8处的字节表示待发送的数据，当(0xffb)==1时，表示数据准备完成，可以发送。之后数据将会存入FIFO，并将0xffb置为0，以告知CPU，数据已经接收。串口模块可以自动的将FIFO数据发送出去。
 
+我们约定，在地址0xff4处的字节表示待接收的数据，当(0xff7)==1时，表示数据准备完成，可以接收。
+
 C语言实现的输出函数：
 
 ```c
@@ -962,10 +964,10 @@ C语言实现的输出函数：
 
 void seriprint(char *s)
 {
-    uint32_t * stdin_area = (uint32_t *)0xff8;
+    uint32_t * stdout_area = (uint32_t *)0xff8;
 	  while (*s != '\0'){
-        *stdin_area = *s + 0x80000000;
-        while (*stdin_area >> 31 == 1);
+        *stdout_area = *s + 0x80000000;
+        while (*stdout_area >> 31 == 1);
         s++;
     }
 }
@@ -1019,218 +1021,27 @@ void seriprint(char *s)
 
 """
 
-## 4.2 处理器优化
+## 4.2 五周期处理器CPU流水线设计
 
-在上面的设计中，我们仅实现了一个处理器的原型。为了提高处理器的效率，充分利用FPGA的资源，我们需要对我们的设计进行优化。
-
-### 4.2.1 DDR3L内存访问
-
-在4.1节中，我们临时采用了两个模拟存储模块来配合处理器的运行。现在，我们改用DDR3L内存来代替模拟存储模块。但是这也并不意味着要完全取消模拟存储模块。DDR3L内存的行存储和列存储共用存储线，使得总体的控制过程非常复杂。因此我们保留模拟存储模块，或者将其称为缓存模块，便于处理器高速的存取数据。
-
-#### 4.2.1.1 DDR3L存储原理
-
-DDR的内部具有多个存储阵列，被称为Bank。在数据的地址中，有一部分用来选择Bank。而每个存储阵列又都是二维的，因此剩下的数据地址可以被拆分为行地址和列地址，从而定位到具体的存储单元。
-
-我们的DDR3L的存储位宽为16位，也就是说存储单元存储的数据量为16bit，又被称为宽度是16bit。它的深度则为64M，是说存储器总共有64M个存储单元。M表示$2^{20}$。这64M的深度是由8个Bank提供的，每个Bank分别有8M个存储单元。
-
-通过计算可知，地址总共有26位。通过查阅技术文档，可以知道，有行地址13位，Bank地址3位，列地址10位。
-
-DDR3的引脚如下：
-
-| 引脚 | 引脚描述 | 类型
-| --- | --- |
-| CLK_p, CLK_n | 时钟信号，但是互为反相，用于提升稳定性 | input |
-| _RESET | 复位信号，低电位有效 | input |
-| CKE | 时钟使能信号 | input |
-| _CS | 片选信号，低电位有效,为高电平时，屏蔽所有命令，但已经突发的读写操作不受影响 | input |
-| _CAS | 列选通信号，低电位有效，使A[9:0]为列地址 | input |
-| _RAS | 行选通信号，低电位有效，使A[12:0]为行地址 |input |
-| _WE | 写使能信号，低电位有效 | input |
-| A[12:0] | 行列地址总线 | input |
-| BA[2:0] | Bank地址总线 | input |
-| DQ[15:0] | 数据总线 | inout |
-| DM0 | 低字节数据掩码，使低字节为高阻态 | input |
-| DM1 | 高字节数据掩码，使高字节为高阻态 | input |
-| DQS0_p, DQS0_n | DQS总线，用于DQ[7:0]的数据同步传输 | input |
-| DQS1_p, DQS1_n | DQS总线，用于DQ[15:8]的数据同步传输 | input |
-| ODT | 输出驱动信号，高电平时可以帮助DQ、DQS、DM信号消除反射 | input |
-
-#### 4.2.1.2 DDR3L存储器驱动：MIG IP核
-
-DDR3的时序逻辑非常复杂，驱动实现十分困难。如果不愿意手动实现一个访问DDR3L的驱动，可以尝试直接采用[IP核](#241-ip核)，从而减小工作量。
-
-采用的核为Memory Interface Generator，可以直接搜索MIG找到。
-
-利用了AXI4总线。最后例化的模块命名为`ddr3_drive`。这个模块一定程度上简化了对DDR3的访问难度，但是仍然很复杂。
-
-这是调用模板：
-
-```verilog
-  ddr3_drive u_ddr3_drive (
-
-    // Memory interface ports
-    .ddr3_addr                      (ddr3_addr),  // output [12:0]		ddr3_addr
-    .ddr3_ba                        (ddr3_ba),  // output [2:0]		ddr3_ba
-    .ddr3_cas_n                     (ddr3_cas_n),  // output			ddr3_cas_n
-    .ddr3_ck_n                      (ddr3_ck_n),  // output [0:0]		ddr3_ck_n
-    .ddr3_ck_p                      (ddr3_ck_p),  // output [0:0]		ddr3_ck_p
-    .ddr3_cke                       (ddr3_cke),  // output [0:0]		ddr3_cke
-    .ddr3_ras_n                     (ddr3_ras_n),  // output			ddr3_ras_n
-    .ddr3_reset_n                   (ddr3_reset_n),  // output			ddr3_reset_n
-    .ddr3_we_n                      (ddr3_we_n),  // output			ddr3_we_n
-    .ddr3_dq                        (ddr3_dq),  // inout [15:0]		ddr3_dq
-    .ddr3_dqs_n                     (ddr3_dqs_n),  // inout [1:0]		ddr3_dqs_n
-    .ddr3_dqs_p                     (ddr3_dqs_p),  // inout [1:0]		ddr3_dqs_p
-    .init_calib_complete            (init_calib_complete),  // output			init_calib_complete
-
-	  .ddr3_cs_n                      (ddr3_cs_n),  // output [0:0]		ddr3_cs_n
-    .ddr3_dm                        (ddr3_dm),  // output [1:0]		ddr3_dm
-    .ddr3_odt                       (ddr3_odt),  // output [0:0]		ddr3_odt
-
-    // Application interface ports
-    .ui_clk                         (ui_clk),  // output			ui_clk
-    .ui_clk_sync_rst                (ui_clk_sync_rst),  // output			ui_clk_sync_rst
-    .mmcm_locked                    (mmcm_locked),  // output			mmcm_locked
-    .aresetn                        (aresetn),  // input			aresetn
-    .app_sr_req                     (app_sr_req),  // input			app_sr_req
-    .app_ref_req                    (app_ref_req),  // input			app_ref_req
-    .app_zq_req                     (app_zq_req),  // input			app_zq_req
-    .app_sr_active                  (app_sr_active),  // output			app_sr_active
-    .app_ref_ack                    (app_ref_ack),  // output			app_ref_ack
-    .app_zq_ack                     (app_zq_ack),  // output			app_zq_ack
-
-    // Slave Interface Write Address Ports
-    .s_axi_awid                     (s_axi_awid),  // input [3:0]			s_axi_awid
-    .s_axi_awaddr                   (s_axi_awaddr),  // input [26:0]			s_axi_awaddr
-    .s_axi_awlen                    (s_axi_awlen),  // input [7:0]			s_axi_awlen
-    .s_axi_awsize                   (s_axi_awsize),  // input [2:0]			s_axi_awsize
-    .s_axi_awburst                  (s_axi_awburst),  // input [1:0]			s_axi_awburst
-    .s_axi_awlock                   (s_axi_awlock),  // input [0:0]			s_axi_awlock
-    .s_axi_awcache                  (s_axi_awcache),  // input [3:0]			s_axi_awcache
-    .s_axi_awprot                   (s_axi_awprot),  // input [2:0]			s_axi_awprot
-    .s_axi_awqos                    (s_axi_awqos),  // input [3:0]			s_axi_awqos
-    .s_axi_awvalid                  (s_axi_awvalid),  // input			s_axi_awvalid
-    .s_axi_awready                  (s_axi_awready),  // output			s_axi_awready
-
-    // Slave Interface Write Data Ports
-    .s_axi_wdata                    (s_axi_wdata),  // input [127:0]			s_axi_wdata
-    .s_axi_wstrb                    (s_axi_wstrb),  // input [15:0]			s_axi_wstrb
-    .s_axi_wlast                    (s_axi_wlast),  // input			s_axi_wlast
-    .s_axi_wvalid                   (s_axi_wvalid),  // input			s_axi_wvalid
-    .s_axi_wready                   (s_axi_wready),  // output			s_axi_wready
-
-    // Slave Interface Write Response Ports
-    .s_axi_bid                      (s_axi_bid),  // output [3:0]			s_axi_bid
-    .s_axi_bresp                    (s_axi_bresp),  // output [1:0]			s_axi_bresp
-    .s_axi_bvalid                   (s_axi_bvalid),  // output			s_axi_bvalid
-    .s_axi_bready                   (s_axi_bready),  // input			s_axi_bready
-
-    // Slave Interface Read Address Ports
-    .s_axi_arid                     (s_axi_arid),  // input [3:0]			s_axi_arid
-    .s_axi_araddr                   (s_axi_araddr),  // input [26:0]			s_axi_araddr
-    .s_axi_arlen                    (s_axi_arlen),  // input [7:0]			s_axi_arlen
-    .s_axi_arsize                   (s_axi_arsize),  // input [2:0]			s_axi_arsize
-    .s_axi_arburst                  (s_axi_arburst),  // input [1:0]			s_axi_arburst
-    .s_axi_arlock                   (s_axi_arlock),  // input [0:0]			s_axi_arlock
-    .s_axi_arcache                  (s_axi_arcache),  // input [3:0]			s_axi_arcache
-    .s_axi_arprot                   (s_axi_arprot),  // input [2:0]			s_axi_arprot
-    .s_axi_arqos                    (s_axi_arqos),  // input [3:0]			s_axi_arqos
-    .s_axi_arvalid                  (s_axi_arvalid),  // input			s_axi_arvalid
-    .s_axi_arready                  (s_axi_arready),  // output			s_axi_arready
-
-    // Slave Interface Read Data Ports
-    .s_axi_rid                      (s_axi_rid),  // output [3:0]			s_axi_rid
-    .s_axi_rdata                    (s_axi_rdata),  // output [127:0]			s_axi_rdata
-    .s_axi_rresp                    (s_axi_rresp),  // output [1:0]			s_axi_rresp
-    .s_axi_rlast                    (s_axi_rlast),  // output			s_axi_rlast
-    .s_axi_rvalid                   (s_axi_rvalid),  // output			s_axi_rvalid
-    .s_axi_rready                   (s_axi_rready),  // input			s_axi_rready
-
-    // System Clock Ports
-    .sys_clk_i                       (sys_clk_i),
-
-    // Reference Clock Ports
-    .clk_ref_i                      (clk_ref_i),
-    .sys_rst                        (sys_rst) // input sys_rst
-    );
-```
-
-可见，MIG将ddr3的调用分解为了多个不同的部分，我们仍然需要进一步对这些端口进行操作。
-
-##### 4.2.1.2.1 写控制模块
-
-![写突发](42121-write-burst.png)
-
-主要是通过valid信号和ready信号进行握手。首先是写地址valid信号表示控制模块发出的地址信号是有效的，写地址ready信号表示MIG核可以接收地址信号。当这两个信号同时为高电平时，即可以开始写数据了。
-
-之后的读数据ready信号表示MIG核可以接收数据，而valid信号表示控制模块发出的数据信号是有效的。当它们同时为高电平后，才能发送后续的数据信号。last信号的出现表示这是最后一个数据信号。
-
-应当用状态机来实现。
-
-| 名称 | 描述 |
-| --- | --- |
-| S0_IDLE | 空闲状态 |
-| S1_WR_WAIT | 写等待 |
-| S2_WR_ADDR | 写地址 |
-| S3_WD_WAIT | 写数据等待 |
-| S4_WD_PROC | 写数据循环 |
-| S5_WR_RES | 写应答 |
-| S6_WR_DONE ｜ 写完成 |
-
-
-首先，模块处于`S0_IDLE`状态。在接收到一个`写开始`信号时，转入`S1_WR_WAIT`状态。
-
-`S1_WR_WAIT`在一个时钟周期后自动转到`S2_WR_ADDR`。
-
-`S2_WR_ADDR`将会置`写地址有效`（即`s_axi_awvalid`）为高电平，并传递地址。
-
-写完后转到`S3_WD_WAIT`，同时`s_axi_awvalid`置低电平。并等待`s_axi_awready`变成高电平。
-
-`S4_WD_PROC`会在`写数据有效`（和`s_axi_wvalid` ）为高电平的同时传递数据。当`s_axi_wvalid`在下个时钟周期为0（也就是写有效为0，但是在时钟信号的上升沿才会刷新），且`s_axi_wlast`和 `.s_axi_wready`均为高电平时，进入`S5_WR_RES`。
-
-在这个状态，和MIG核反过来，我们等待`.s_axi_bvalid`信号。
-
-进入`S6_WR_DONE`时，还要将输出给MIG的`.s_axi_bready`变成低电平。一个时钟周期后回到`S0_IDLE`。
-
-##### 4.2.1.2.2 读控制模块
-
-![读突发](42122-read-burst.png)
-
-| 名称 | 描述 |
-| --- | --- |
-| S0_IDLE | 空闲状态 |
-| S1_RE_WAIT | 读等待 |
-| S2_RE_ADDR | 读地址 |
-| S3_RD_WAIT | 读数据等待 |
-| S4_RD_PROC | 读数据循环 |
-| S5_RE_DONE | 读完成 |
-
-#### 4.2.1.3 读写控制模块
-
-### 4.2.2 Cache机制
-
-Cache缓存是为了降低CPU访问内存的延迟，提高CPU的吞吐率。我们可以分别为指令和数据设计不同的Cache。
-
-对于两个cache，我们可以设计为每行64B，共用512行。总共可以缓存32KB的数据。
-
-因此处理器在取指令或数据时，还需要一个命中信号，表示取到的数据是否有效。
-
-| 有效位 | 标记 | 组号 | 块内地址 |
-| --- | --- | --- | --- |
-| 1位 | 12位 | 9位 | 6位 |
-
-## 4.3 多周期处理器CPU流水线设计
-
-### 4.3.1 流水线结构
+### 4.2.1 流水线结构
 
 在上一节中，我们设计了单周期的RV32I处理器。单周期处理器的每个指令都需要一个时钟周期来执行。这样的设计效率不高，因为需要庞大的组合电路来实现每个指令，因此时钟周期不能太短，否则组合电路带来的延迟无法在一个时钟周期内完成。为了提高处理器的时钟频率，我们需要将指令的处理过程拆分成多个阶段，每个阶段用一个时钟周期来完成，这样每一个阶段所需的组合电路延迟就会减少。
 
 同时，在每个时钟周期，每一个阶段都可以处理一条指令，于是处理器就可以同时处理多个指令，因此虽然每一条指令的处理时长变长了，但随着时钟频率的提升，整体的吞吐量却提高了。
 
-典型的流水线结构如下：取指（Fetch）、译码（Decode）、执行（Execute）、访存（Memory）、写回（Write Back）。在RISC-V中，还有一个访问内存的阶段，即访存（Memory）阶段。
+典型的流水线结构如下：取指（Fetch）、译码（Decode）、执行（Execute）、访存（Memory）、写回（Write Back）。
 
 ![流水线](cpu-pipeline-default.png)
 
+## 4.3.1.1 取指单元
+
+取指单元负责从内存中读取指令，并将指令发送给译码单元。
+
+在我们的单周期处理器中，取指操作是在时钟的下降沿发生的，巧妙的使用了时钟的负边沿来完成取指操作。
+
+显然取指操作需要占用一个时钟周期，并且可能会因为未命中的问题，导致后续操作无法继续。
+
+访存阶段还需要预测PC的值，并且在预测失误时清空流水线。
 
 ### 4.3.1.2 译码单元
 
@@ -1545,10 +1356,10 @@ source ./c2rom.sh hello.c
 for line in "$@"
 do  
     # Compile the C file
-    riscv32-unknown-elf-gcc -c "$line"
+    riscv32-unknown-elf-gcc -T link.ld -o "${line%.*}" "$line"  startup.S -nostdlib -march=rv32i
 
     # Disassemble the object file
-    riscv32-unknown-elf-objdump -d "${line%.*}.o" > "${line%.*}.asm"
+    riscv32-unknown-elf-objdump -d "${line%.*}" > "${line%.*}.asm"
 
     # Convert the assembly to ROM format
     python3 asm2rom.py < "${line%.*}.asm" > "program.v"

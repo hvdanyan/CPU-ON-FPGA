@@ -28,6 +28,7 @@ module computer(
     output [3:0]digitron_sel,
     output [3:0]digitronA_out,digitronB_out,
     output [7:0]led,
+    input rx,
     output tx
     );
 
@@ -35,8 +36,8 @@ module computer(
 
     wire CLK_FAST,CLK_SLOW;
 
-    parameter DIVCLK_CNT_FAST = 99;//异步FIFO中控制输入频率
-    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_FAST)) clock_division_FAST_inst(// 100MHz/100 = 1MHz
+    parameter DIVCLK_CNT_FAST = 49;//异步FIFO中控制输入频率 因为IP核的fifo有输出输入时钟信号的配置，所以不能随意修改
+    clock_division #(.DIVCLK_CNTMAX(DIVCLK_CNT_FAST)) clock_division_FAST_inst(// 100MHz/50 = 2MHz
       .clk_in(CLK100MHz),
       .clk_div(CLK_FAST)
       );
@@ -54,8 +55,11 @@ module computer(
     wire data_hit,data_write_en;
     wire [23:0]data1, data2;
 
-    wire stdin_wr_en,stdin_wr_ack;
+    wire stdin_rd_available,stdin_rd_request;
     wire [7:0]stdin_data;
+
+    wire stdout_wr_en,stdout_wr_ack;
+    wire [7:0]stdout_data;
 
     cache_data #(.BIT_INDEX(BIT_INDEX)) cache_data(
         .clock(CLK),
@@ -68,9 +72,13 @@ module computer(
         .print_data1(data1),
         .print_data2(data2),
 
-        .stdin_wr_ack(stdin_wr_ack),
-        .stdin_wr_en(stdin_wr_en),
-        .stdin_data(stdin_data)
+        .stdin_rd_available(stdin_rd_available),
+        .stdin_rd_request(stdin_rd_request),
+        .stdin_data(stdin_data),
+
+        .stdout_wr_ack(stdout_wr_ack),
+        .stdout_wr_en(stdout_wr_en),
+        .stdout_data(stdout_data)
     );
 
     cache_instr #(.BIT_INDEX(BIT_INDEX)) cache_instr(
@@ -111,13 +119,19 @@ module computer(
     assign led = {instr_data[13:12],instr_data[5:0]};
 
     serial_uart serial_uart_inst(
-        .wr_clk(CLK),
-        .rd_clk(CLK100MHz),
+        .cpu_clk(CLK),
+        .seri_clk(CLK100MHz),
         .rst(key[0]),//随便取的复位键，低电平有效
-        .din(stdin_data),
+
+        .rx(rx),
+        .stdin_data(stdin_data),
+        .stdin_rd_available(stdin_rd_available),
+        .stdin_rd_request(stdin_rd_request),
+
+        .stdout_data(stdout_data),
         .tx(tx),
-        .stdin_wr_en(stdin_wr_en),
-        .stdin_wr_ack(stdin_wr_ack)
+        .stdout_wr_en(stdout_wr_en),
+        .stdout_wr_ack(stdout_wr_ack)
     );
 
 endmodule

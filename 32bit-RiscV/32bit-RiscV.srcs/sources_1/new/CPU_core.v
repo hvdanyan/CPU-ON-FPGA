@@ -42,13 +42,12 @@ module CPU_core #(
 
 
     wire [31:0]PC;
-    wire [31:0]new_addr;
-    wire PC_src;
+    wire [31:0]new_real_PC;
 
     PC_register PC_register(
         .clock(CLK),
         ._reset(key[0]),
-        .new_addr(new_addr),
+        .new_real_PC(new_real_PC),
         .PC(PC)
     );
 
@@ -178,7 +177,7 @@ module CPU_core #(
         .rs1_data(rs1_data),
         .zero(zero),
         .less(less),
-        .next_PC(new_addr)
+        .next_PC(new_real_PC)
     );
 
     assign test = instr_addr;
