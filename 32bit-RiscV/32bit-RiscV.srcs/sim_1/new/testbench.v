@@ -30,6 +30,7 @@ module testbench(
     reg [3:0]ina,inb;
     reg _reset;
     reg rx;
+    reg instr_hit;
     parameter BIT_INDEX = 12 - 1;
 
     wire [31:0]rom_data, rom_addr;
@@ -70,11 +71,12 @@ module testbench(
 
     CPU_core #(.BIT_INDEX(BIT_INDEX)) CPU_core(
         .CLK(CLK_SLOW),
-        .key(key),
+        ._reset(_reset),
         .ina(ina),
         .inb(inb),
         .instr_data(rom_data),
         .instr_addr(rom_addr),
+        .instr_hit(instr_hit),
         .data_out_data(ram_out_data),
         .data_write_en(ram_write_en),
         .data_in_data(ram_in_data),
@@ -117,9 +119,10 @@ module testbench(
     key = 9'b111111111;
     ina = 4'b0000;
     inb = 4'b0000;
+    instr_hit = 1'b1;
     _reset = 1;
     rx = 1;
-    #2 _reset = 0;
+    #3 _reset = 0;
     #10 _reset =1;
     #20416 rx=0;
     #25624 rx=1;

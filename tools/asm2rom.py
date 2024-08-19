@@ -18,7 +18,8 @@ module program #(
     )(
     input clock,
     input [BIT_INDEX:0]addr,
-    output [31:0]data
+    output [31:0]data,
+    output instr_hit
     );
 
     wire [31:0]Memory[0:1023];
@@ -31,6 +32,7 @@ module program #(
 
 footer = """
     assign data = Memory[addr[BIT_INDEX:2]];
+    assign instr_hit = 1;
 
 endmodule"""
 

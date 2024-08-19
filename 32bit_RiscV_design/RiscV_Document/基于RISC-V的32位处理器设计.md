@@ -1035,27 +1035,113 @@ void seriprint(char *s)
 
 ## 4.3.1.1 取指单元
 
-取指单元负责从内存中读取指令，并将指令发送给译码单元。
-
-在我们的单周期处理器中，取指操作是在时钟的下降沿发生的，巧妙的使用了时钟的负边沿来完成取指操作。
+取指单元负责从内存中读取指令，并将指令发送给译码单元。在我们的单周期处理器中，存储单元在在时钟的下降沿输出数据，巧妙的使用了时钟的负边沿来完成取指操作。现在，我们为了实现取指单元，需要将所有和取指相关的电路组合在一起，并利用输出寄存器来构成时序电路。
 
 显然取指操作需要占用一个时钟周期，并且可能会因为未命中的问题，导致后续操作无法继续。
 
-访存阶段还需要预测PC的值，并且在预测失误时清空流水线。
+访存阶段还需要预测PC的值，并且在预测失误时清空流水线。检查是否预测失误的方法是比较取指阶段输出的指令地址值和执行阶段计算出来的PC值。
+
+所以总的来说，取指阶段需要解决的两个主要问题是，**预测失误时的流水线清空**，以及**取指令未命中时的暂停**。
+
+在之前的单周期处理器中，我们已经有了**PC寄存器**、**PC加法器**，这些都是组合电路模块。在流水线处理器中，next_PC是在完成取指、译码、执行之后获得的，而取指单元在每个时钟周期都需要一个PC，所以还需要一个**PC预测器**。
+
+为了实现高效率的PC预测，事实上已经有很多复杂的方案，但在实现这些复杂方案之前，可以先利用下面最简单的逻辑：PC自增4。此外我们还需要一个信号用来判断预测是否正确，也就是predict_right信号。
+
+```verilog
+//PC_predictor.v
+assign predict_PC = instr_hit ? PC + 4 : PC;//这个是组合电路，保证下一个PC寄存器立即更新
+assign predict_right = stage_decode_valid ? (stage_fetch_PC == new_real_PC) : 1;//PC_adder的时序是在执行阶段。
+```
+
+`new_real_PC`是经过PC加法器计算出来的正确的PC值，因为PC加法器相较于之前的单周期处理器而言并没有做任何更改，所以它是组合电路的。换而言之，new_real_PC是译码阶段输出的PC（称之为stage_decode_PC）的下一个PC。所以将其与取指阶段输出的PC（称之为stage_fetch_PC，因为它是预测器预测的stage_decode_PC的下一个PC，所以我们希望它们最好相等）进行比较，如果相等，说明取指阶段输出的PC是正确的，否则就需要清空流水线，并采用new_real_PC作为正确的PC。
+
+重置和预测失误都会造成流水线清空的情况，在流水线清空、并且取指命中之后，会有2个时钟周期的真空，PC加法器才能够输出，因此在这之前，无法判断预测结果是否正确。可以使用计数器排除这两个时钟周期，不过这里有一个更简单的方案：增加一个“输出信号是否有效标记”，当清空流水线或者预测失误时，并不是真的将所有输出的寄存器置0，而是添加一个标记，使得下游的单元电路根据这些标记不做任何操作，并将标记继续向下游传递。
+
+不过需要注意的是，清空流水线需要将所有阶段的输出进行标记，但是**预测失误**只需要标记“取指单元”“译码单元”，不需要将“执行单元”及之后的单元进行标记。因为执行单元执行的指令是正确的。
+
+当出现取指令“未命中”现象时，也可以让“取指单元”输出这个标记。
+
+```verilog
+    //PC寄存器
+    PC_register PC_register()
+    //根据预测结果是否正确，更新PC的值
+    
+    //PC预测器
+    PC_predictor PC_predictor()
+    //根据缓存命中情况，预测下一个PC
+    //根据PC加法器工作情况，判断预测是否正确
+
+    //ROM / cache_instr
+    wire [31:0]instruction = instr_data;
+    assign instr_addr = PC;
+
+    //取指阶段寄存器
+    reg [31:0]stage_fetch_PC;//记录的是instruction的PC的值
+    reg [31:0]stage_fetch_instruction;
+    reg stage_fetch_valid;
+    always @(posedge CLK) begin
+        if(predict_right && instr_hit && _reset)begin//只有当命中且预测正确时，认为取指结果有效
+            stage_fetch_PC <= PC;
+            stage_fetch_valid <= 1;
+            stage_fetch_instruction <= instruction;
+            end
+        else begin
+            stage_fetch_valid <= 0;
+        end
+    end
+```
+
+
 
 ### 4.3.1.2 译码单元
 
-译码单元用于解析指令，将指令的操作码和操作数提取出来，然后根据操作码执行相应的操作。为实现对指令执行单元的控制，需要将指令解析为以下的控制信号：
+译码单元只需要为每个输出加上一个寄存器，用于存储译码结果即可。
+此外需要传递PC值、输出信号是否有效标记。
 
-fig.3.2-译码单元的控制信号
+```verilog
+    //译码阶段寄存器
+    always @(posedge CLK) begin
+        if(predict_right && _reset)begin
+            stage_decode_PC <= stage_fetch_PC;
+            stage_decode_valid <= stage_fetch_valid;
 
-| 控制信号 | 宽度 | 说明 |
-|---|---|---|
-| ExtOP | 3 | 立即数的产生类型 |
+            stage_decode_alu_op <= alu_op;
+            stage_decode_mem_to_reg <= mem_to_reg;
+            stage_decode_mem_op <= mem_op;
+            stage_decode_mem_write <= mem_write;
+            stage_decode_branch <= branch;
+            stage_decode_imm <= imm;
+            stage_decode_reg_write <= reg_write;
+            stage_decode_rd <= rd;
+            stage_decode_aluA_src <= aluA_src;
+            stage_decode_aluB_src <= aluB_src;
+            stage_decode_rs1 <= rs1;
+            stage_decode_rs2 <= rs2;
+            end
+        else begin
+            stage_decode_valid <= 0;
+        end
+    end
+```
 
+### 4.3.1.3 指令执行单元（1）
 
+```verilog
+    GP_registers GP_registers( //GP_registers在执行段
+      ......
+        .write_reg(stage_execute_write_reg),
+        .write_data(stage_execute_write_data),
 
-### 4.3.3 指令执行单元
+        .read_regA(stage_decode_rs1),
+        .read_regB(stage_decode_rs2),
+      ......
+    );
+    assign stage_execute_write_reg = stage_execute_rd & {5{stage_execute_reg_write & stage_execute_valid}};
+
+    assign stage_execute_write_data = stage_execute_mem_to_reg ? mem_data : stage_execute_ALU_result;
+
+    assign data_write_en = stage_execute_mem_write && stage_execute_valid;
+```
 
 
 #### 4.3.3.1 ALU算数逻辑单元

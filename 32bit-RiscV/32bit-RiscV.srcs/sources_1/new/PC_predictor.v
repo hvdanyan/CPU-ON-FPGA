@@ -22,17 +22,18 @@
 
 module PC_predictor(
     input clock,
-    input _reset,
+    input [31:0] PC,
+    input instr_hit,
+    input stage_decode_valid,
+    input [31:0] stage_fetch_PC,//因为new_real_PC在译码端输出后立即输出，所以是stage_decode_PC的下一条指令，因此应该和stage_fetch_PC作对比。
     input [31:0] new_real_PC,
     output [31:0] predict_PC,
     output predict_right
-    );
+    );    
 
-    wire predict_right;
-    reg [31:0]predict_PC_1ck;
-    reg [31:0]predict_PC_2ck;
+    assign predict_PC = instr_hit ? PC + 4 : PC;//这个是组合电路，保证下一个PC寄存器立即更新
+    assign predict_right = stage_decode_valid ? (stage_fetch_PC == new_real_PC) : 1;//PC_adder的时序是在执行阶段。
 
-    assign predict_right = predict_PC_2ck == new_real_PC;
 
-    
+
 endmodule

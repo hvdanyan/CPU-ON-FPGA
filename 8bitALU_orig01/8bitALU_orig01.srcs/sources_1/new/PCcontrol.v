@@ -9,9 +9,9 @@
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: PCcontrol ��һ����ʱ��������ˮ�ߵ�"ִ��"ͬ���Ŀ����������Ĺ�����1����׼R1��ֵ��PC�Ĵ�����
-//2��������һ���ڵ�"ȡָ""����""ִ��"����
-// 3��ע�⣺д�ز�������Ҫ���ء�
+// Description: PCcontrol 是一个在时序上与流水线的"执行"同步的控制器，它的工作是1、批准R1赋值到PC寄存器；
+//2、拦截下一周期的"取指""解码""执行"操作
+// 3、注意：写回操作不需要拦截。
 // Dependencies: 
 // 
 // Revision:
@@ -41,16 +41,16 @@ module PCcontrol(
     always @(posedge CLK)
     begin
         activate_delay[0] <= activate;
-        activate_delay[1] <= activate_delay[0];//�������ӳ�
+        activate_delay[1] <= activate_delay[0];//做两步延迟
         CS_delay[0]<=CS;
         CS_delay[1]<=CS_delay[0];
         PCwrite <= (~activate_delay[1]&jump)|(activate_delay[1]&CS_delay[1][1]&~jump)|(activate_delay[1]&~CS_delay[1][1]&jump)?1:0;//when it's different,meaning predicting wrong.
-        PCtraceback <= activate_delay[1]&CS_delay[1][1]&~jump;//��̬Ԥ���Ѽ���ҷ�������ת������ʵ���ϲ���Ҫ��תʱΪ1
-        //�������Σ���Ԥ����Ԥ����ת��ʵ��ȷʵ��ת��
-        //��Ԥ����Ԥ�ⲻ��ת��ʵ��ȷʵ����ת��
-        //��Ԥ����Ԥ�ⲻ��ת��ʵ����ת��
-        //��Ԥ����Ԥ����ת��ʵ�ʲ���ת��
-        //һ���������ֻ��ҪPCwriteΪ0���ɡ��������PCwrite��Ҫ���룬����������Ƚϸ��ӣ���Ҫ��PC�Ĵ������ݵ���תǰ��
+        PCtraceback <= activate_delay[1]&CS_delay[1][1]&~jump;//动态预测已激活，且发生了跳转，但是实际上不需要跳转时为1
+        //四种情形，①预测器预测跳转，实际确实跳转。
+        //②预测器预测不跳转，实际确实不跳转。
+        //③预测器预测不跳转，实际跳转。
+        //④预测器预测跳转，实际不跳转。
+        //一二两种情况只需要PCwrite为0即可。三四情况PCwrite需要介入，并且四情况比较复杂，需要将PC寄存器回溯到跳转前。
         //when ~activate_delay[1]&jump, just make PC=regB.
         //But when activate_delay[1]&~jump, return traceback.
         

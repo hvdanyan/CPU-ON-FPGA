@@ -32,14 +32,16 @@ module PC_register(
     reg [31:0]PC_reg;
 
     always @(posedge clock or negedge _reset) begin
-        if (_reset == 32'b0) begin
-            PC_reg <= 0;
-        end
-        else if(predict_right)begin
-            PC_reg <= predict_PC;
+        if (_reset == 0) begin
+            PC_reg <= 32'b0;
         end
         else begin
+            if(predict_right)begin
+                PC_reg <= predict_PC;
+            end
+            else begin
             PC_reg <= new_real_PC;
+            end
         end
     end
 

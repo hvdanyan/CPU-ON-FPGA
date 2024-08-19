@@ -51,6 +51,7 @@ module computer(
     wire CLK = CLK_FAST;
     wire _reset;
     wire [31:0]instr_data, instr_addr;
+    wire instr_hit;
     wire [31:0]data_out_data, data_in_data, data_addr;
     wire data_hit,data_write_en;
     wire [23:0]data1, data2;
@@ -84,7 +85,8 @@ module computer(
     cache_instr #(.BIT_INDEX(BIT_INDEX)) cache_instr(
         .clock(CLK),
         .addr(instr_addr[BIT_INDEX:0]),
-        .data(instr_data)
+        .data(instr_data),
+        .instr_hit(instr_hit)
     );
 
 
@@ -92,11 +94,12 @@ module computer(
     wire [31:0]test;
     CPU_core #(.BIT_INDEX(BIT_INDEX)) CPU_core(
         .CLK(CLK),
-        .key(key),
+        ._reset(key[0]),
         .ina(ina),
         .inb(inb),
         .instr_data(instr_data),
         .instr_addr(instr_addr),
+        .instr_hit(instr_hit),
         .data_out_data(data_out_data),
         .data_write_en(data_write_en),
         .data_in_data(data_in_data),
