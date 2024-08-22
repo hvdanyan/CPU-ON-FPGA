@@ -30,12 +30,11 @@ module testbench(
     reg [3:0]ina,inb;
     reg _reset;
     reg rx;
-    reg instr_hit;
     parameter BIT_INDEX = 12 - 1;
 
     wire [31:0]rom_data, rom_addr;
     wire [31:0]ram_out_data, ram_in_data, ram_addr;
-    wire data_hit,ram_write_en;
+    wire ram_hit,ram_write_en;
     wire [23:0]data1, data2;
     wire tx;
 
@@ -49,7 +48,7 @@ module testbench(
         .addr(ram_addr[BIT_INDEX:0]),
         .data_in(ram_in_data),
         .write_en(ram_write_en),
-        .data_hit(data_hit),
+        .data_hit(ram_hit),
         .data_out(ram_out_data),
         .print_data1(data1),
         .print_data2(data2),
@@ -66,7 +65,8 @@ module testbench(
     cache_instr #(.BIT_INDEX(BIT_INDEX)) ROM(
         .clock(CLK_SLOW),
         .addr(rom_addr[BIT_INDEX:0]),
-        .data(rom_data)
+        .data(rom_data),
+        .instr_hit(rom_hit)
     );
 
     CPU_core #(.BIT_INDEX(BIT_INDEX)) CPU_core(
@@ -76,11 +76,12 @@ module testbench(
         .inb(inb),
         .instr_data(rom_data),
         .instr_addr(rom_addr),
-        .instr_hit(instr_hit),
+        .instr_hit(rom_hit),
         .data_out_data(ram_out_data),
         .data_write_en(ram_write_en),
         .data_in_data(ram_in_data),
         .data_addr(ram_addr),
+        .data_hit(ram_hit),
         .rg_tb(rg_tb),
         .test(test)
 );
@@ -119,7 +120,6 @@ module testbench(
     key = 9'b111111111;
     ina = 4'b0000;
     inb = 4'b0000;
-    instr_hit = 1'b1;
     _reset = 1;
     rx = 1;
     #3 _reset = 0;

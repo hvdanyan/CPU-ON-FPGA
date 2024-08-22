@@ -1033,7 +1033,13 @@ void seriprint(char *s)
 
 ![流水线](cpu-pipeline-default.png)
 
-## 4.3.1.1 取指单元
+### 4.2.2 流水线设计第一阶段
+
+实现整个五级流水线是一个大工程。一口气写好的话，会非常耗时，而且容易出错。因此，我们需要将工作量拆分成两个阶段。在第一阶段完成后，立即对第一阶段的CPU进行功能测试，确保其能够正确运行，之后再补全剩余的流水线。
+
+在第一阶段中，我们将访存和写回阶段合并，并且不考虑访存Cache时的命中问题。
+
+#### 4.2.2.1 取指单元
 
 取指单元负责从内存中读取指令，并将指令发送给译码单元。在我们的单周期处理器中，存储单元在在时钟的下降沿输出数据，巧妙的使用了时钟的负边沿来完成取指操作。现在，我们为了实现取指单元，需要将所有和取指相关的电路组合在一起，并利用输出寄存器来构成时序电路。
 
@@ -1093,7 +1099,7 @@ assign predict_right = stage_decode_valid ? (stage_fetch_PC == new_real_PC) : 1;
 
 
 
-### 4.3.1.2 译码单元
+#### 4.2.2.2 译码单元
 
 译码单元只需要为每个输出加上一个寄存器，用于存储译码结果即可。
 此外需要传递PC值、输出信号是否有效标记。
@@ -1124,10 +1130,37 @@ assign predict_right = stage_decode_valid ? (stage_fetch_PC == new_real_PC) : 1;
     end
 ```
 
-### 4.3.1.3 指令执行单元（1）
+#### 4.2.2.3 指令执行单元
+
+由于执行和访存被合并，所以数据冒险行为的处理会简单一些。
+
+所谓的数据冒险，就是上一条指令写入的数据被下一条指令用到了，但是因为访存的延迟，所以下一条指令需要读取的数据还没有准备好。
+
+在这里，需要检测执行即将写入的寄存器和即将读取的寄存器是否一致，如果一致，就要通过数据转发的方式，直接将结果传入执行单元，从而解决冒险问题。
 
 ```verilog
-    GP_registers GP_registers( //GP_registers在执行段
+    //数据冒险单元
+    always @(*) begin
+        //当执行端结果输出与译码端结果输出的寄存器相同时，取执行端结果输出的值
+        if(stage_decode_rs1 == stage_execute_write_reg && stage_decode_rs1 != 0)begin
+            risk_rs1_data <= stage_execute_write_data;
+        end
+        else risk_rs1_data <= rs1_data;
+
+        
+        if(stage_decode_rs2 == stage_execute_write_reg && stage_decode_rs2 != 0)begin
+            risk_rs2_data <= stage_execute_write_data;
+        end
+        else risk_rs2_data <= rs2_data;
+    end
+```
+
+因为更新数据的行为都被放在了时钟的下边沿，所以在上升沿时，不论数据是否来源于内存，stage_execute_write_data都能够输出正确的数据。
+
+#### 4.2.2.4 访存、写回单元
+
+```verilog
+    GP_registers GP_registers( //GP_registers模块主要在执行阶段被读取、在写回阶段被写入。
       ......
         .write_reg(stage_execute_write_reg),
         .write_data(stage_execute_write_data),
@@ -1142,6 +1175,108 @@ assign predict_right = stage_decode_valid ? (stage_fetch_PC == new_real_PC) : 1;
 
     assign data_write_en = stage_execute_mem_write && stage_execute_valid;
 ```
+
+### 4.2.3 流水线设计第二阶段
+
+在第二阶段中，需要将访存和写回拆开来，并且考虑数据Cache的命中问题、数据冒险的转发策略。
+
+#### 4.2.3.1 访存单元
+
+在旧设计中，用了两个变量记录了要写入的目标寄存器，和需要写入的值：
+
+```verilog
+    assign stage_execute_write_reg = stage_execute_rd & {5{stage_execute_reg_write & stage_execute_valid}};
+
+    assign stage_execute_write_data = stage_execute_mem_to_reg ? mem_data : stage_execute_ALU_result;
+```
+
+但是现在，访存成为了独立的单元，那么就必要有一些改进：
+
+stage_execute_write_reg需要被保留，因为需要根据这个数据判断是否有冒险。
+
+stage_execute_write_data改名为write_data，变成stage_memory_write_data的输入，因为mem_data是在访存单元得出的结果。
+
+另外，为了保持规范，我们改变stage_execute_write_reg的定义,将stage_execute_valid信号从中剥离。
+
+```verilog
+    //执行单元的代码作如下的修改：
+    //写入寄存器的编号
+    assign write_reg = stage_decode_rd & {5{stage_decode_reg_write}}
+
+    //执行阶段译码器
+    always @(posedge CLK) begin
+        if(_reset)begin//不需要因为predict_right而清除
+            ......
+            stage_execute_write_reg <= write_reg;
+            ......
+        end
+        else begin
+            stage_execute_valid <= 0;
+        end
+    end
+```
+
+而在访存单元中，创立一级寄存器。
+
+```verilog
+    //访存阶段译码器
+    always @(posedge CLK) begin
+        if(_reset)begin
+            stage_memory_valid <= stage_execute_valid;
+
+            stage_memory_write_data <= write_data;
+            stage_memory_write_reg <= stage_execute_write_reg;
+        end
+        else begin
+            stage_memory_valid <= 0;
+        end
+    end
+```
+
+接下来将写回操作用到通用寄存器的参数进行一些修改即可。
+
+```verilog
+    GP_registers GP_registers(
+        ......
+        .write_reg(stage_memory_valid ? stage_memory_write_reg : 5'b0),
+        ......
+    )
+```
+
+#### 4.2.3.2 数据Cache的命中问题
+
+面对数据Cache的不命中，需要阻塞取指、译码、执行、访存四个阶段；换而言之，需要将PC寄存器、取指单元的输出、译码单元的输出、执行单元的输出、访存单元的输出全部维持原样。
+
+以访存阶段为例，在data_hit == 0 时，所有参数不做任何变化。
+
+```verilog
+    //访存阶段译码器
+    always @(posedge CLK) begin
+        if(_reset && data_hit)begin
+            stage_memory_valid <= stage_execute_valid;
+
+            stage_memory_write_data <= write_data;
+            stage_memory_write_reg <= stage_execute_write_reg;
+        end
+        else if (!data_hit)begin
+            //不做任何变化
+        end
+        else begin
+            stage_memory_valid <= 0;
+        end
+    end
+```
+
+#### 4.2.4.3 数据冒险转发策略
+
+主要是要检查，执行阶段的两个源操作数，是否和执行单元输出寄存器、访存单元输出寄存器中记录的寄存器号一致（除了寄存器号为0的情况）。
+
+当与执行单元输出寄存器重合时，需要检查stage_execute_mem_to_reg信号，如果为真，则需要堵塞取指、译码、执行阶段（访存不需要堵塞,PC寄存器需要堵塞），等待访存完成（这里注意CPU需要主动摆脱堵塞行为，否则会陷入死循环）。如果为假，则可以直接转发数据。
+
+当与访存单元输出寄存器重合时，则转发数据。
+
+如果执行单元输出寄存器和访存单元输出寄存器的寄存器号一致，那么执行单元输出寄存器的优先级应该更高。此外，应当检查单元的valid参数。
+
 
 
 #### 4.3.3.1 ALU算数逻辑单元

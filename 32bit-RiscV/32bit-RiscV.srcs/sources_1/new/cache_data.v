@@ -27,7 +27,7 @@ module cache_data #(
     input [BIT_INDEX:0]addr,
     input [31:0]data_in,
     input write_en,
-    output reg data_hit,
+    output data_hit,
     output [31:0]data_out,
     output [23:0]print_data1,
     output [23:0]print_data2,
@@ -43,6 +43,8 @@ module cache_data #(
 
     output [7:0]stdout_data
     );
+
+    wire data_hit = 1;
 
     //reg [7:0]Memory[0:4095];// Another syntax is [0:4095][7:0]Memory
 

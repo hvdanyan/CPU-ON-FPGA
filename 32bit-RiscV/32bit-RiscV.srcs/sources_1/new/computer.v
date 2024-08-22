@@ -104,6 +104,7 @@ module computer(
         .data_write_en(data_write_en),
         .data_in_data(data_in_data),
         .data_addr(data_addr),
+        .data_hit(data_hit),
         .rg_tb(rg_tb),
         .test(test)
 );
